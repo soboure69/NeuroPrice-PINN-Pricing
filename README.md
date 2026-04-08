@@ -1,4 +1,18 @@
 # NeuroPrice-PINN-Pricing
+
+```mermaid
+graph TD
+A[Données d'entrée<br/>S, t, σ, r, T, K] --> B[Réseau PINN<br/>couches cachées]
+B --> C[Prix V]
+B --> D[Greeks<br/>Δ, Γ, ν]
+
+E[Équation EDP] --> F[Fonction de perte L_total]
+G[Conditions initiales] --> F
+H[Conditions limites] --> F
+F --> B
+B --> I[Validation<br/>Black-Scholes / Monte Carlo]
+```
+
 ## Contexte et genèse du projet:
 La valorisation d'instruments financiers dérivés (options, produits structurés, contrats futures) est au cœur de la finance de marché mondiale. Chaque jour, des milliards d'euros de contrats sont pricés, échangés, couverts sur les marchés mondiaux.
 
