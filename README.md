@@ -56,12 +56,10 @@ Aujourd'hui :
 
 **Description :** Un PINN résout une EDP en minimisant une fonction de perte composite :
 
-$$
-L_{\text{total}}
+$$L_{\text{total}}
 = L_{\text{EDP}}
 + \lambda_{1}\, L_{\text{CI}}
-+ \lambda_{2}\, L_{\text{CL}}.
-$$
++ \lambda_{2}\, L_{\text{CL}}.$$
 
 Où :
 - $L_{\text{EDP}}$ : résidu de l'équation différentielle sur des points de collocation intérieurs
