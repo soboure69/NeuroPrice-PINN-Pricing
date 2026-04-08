@@ -23,12 +23,12 @@ Pricer un instrument financier, c'est répondre à une question fondamentale :
 Pour répondre à cette question, les quants (mathématiciens de la finance) ont développé depuis les années 1970 des modèles mathématiques sophistiqués, dont le plus célèbre est le modèle de **Black-Scholes-Merton** (Prix Nobel d'Économie 1997).
 Ces modèles de pricing se formulent naturellement comme des **équations aux dérivées partielles (EDPs)**. Le modèle de Black-Scholes donne naissance à l'EDP :
 
-$$
+```math
 \frac{\partial V}{\partial t}
 +\frac{1}{2}\sigma^{2} S^{2}\frac{\partial^{2} V}{\partial S^{2}}
 + r S \frac{\partial V}{\partial S}
 - rV = 0.
-$$
+```
 
 Pour les options européennes simples, cette EDP possède une solution analytique fermée (la formule de Black-Scholes). Mais dans la réalité des marchés, les praticiens ont besoin de pricer des instruments bien plus complexes :
 
@@ -70,10 +70,9 @@ Aujourd'hui :
 
 **Description :** Un PINN résout une EDP en minimisant une fonction de perte composite :
 
-$$L_{\text{total}}
-= L_{\text{EDP}}
-+ \lambda_{1}\, L_{\text{CI}}
-+ \lambda_{2}\, L_{\text{CL}}.$$
+```math
+L_{\text{total}} = L_{\text{EDP}} + \lambda_{1}\, L_{\text{CI}} + \lambda_{2}\, L_{\text{CL}}
+```
 
 Où :
 - $L_{\text{EDP}}$ : résidu de l'équation différentielle sur des points de collocation intérieurs
