@@ -56,10 +56,12 @@ Pour répondre à cette question, les quants (mathématiciens de la finance) ont
 
 Ces modèles de pricing se formulent naturellement comme des **équations aux dérivées partielles (EDPs)**. Le modèle de Black-Scholes donne naissance à l'EDP :
 
-$$\frac{\partial V}{\partial t}
+```math
+\frac{\partial V}{\partial t}
 +\frac{1}{2}\sigma^{2} S^{2}\frac{\partial^{2} V}{\partial S^{2}}
 + r S \frac{\partial V}{\partial S}
-- rV = 0.$$
+- rV = 0.
+```
 
 Pour les options européennes simples, cette EDP possède une solution analytique fermée (la formule de Black-Scholes). Mais dans la réalité des marchés, les praticiens ont besoin de pricer des instruments bien plus complexes :
 
