@@ -14,6 +14,12 @@ from neuroprice.pinn.log_bs import (
 )
 from neuroprice.pinn.losses import BlackScholesDomain, PINNLossWeights, black_scholes_pinn_loss
 from neuroprice.pinn.models import BlackScholesPINN
+from neuroprice.pinn.parametric_bs import (
+    ParametricBlackScholesDomain,
+    ParametricBlackScholesPINN,
+    parametric_black_scholes_pinn_loss,
+    sample_parametric_black_scholes_batch,
+)
 from neuroprice.validation.black_scholes_ref import (
     black_scholes_call_delta_np,
     black_scholes_call_gamma_np,
@@ -36,6 +42,13 @@ def test_log_pinn_forward_shape() -> None:
     x = torch.rand(5, 1)
     tau = torch.rand(5, 1)
     out = model(x, tau)
+    assert out.shape == (5, 1)
+
+
+def test_parametric_pinn_forward_shape() -> None:
+    model = ParametricBlackScholesPINN(hidden_dim=8, hidden_layers=2)
+    inputs = [torch.rand(5, 1) for _ in range(6)]
+    out = model(*inputs)
     assert out.shape == (5, 1)
 
 
@@ -76,6 +89,13 @@ def test_log_pinn_loss_is_finite() -> None:
     model = LogBlackScholesPINN(hidden_dim=8, hidden_layers=2)
     batch = sample_log_black_scholes_batch(n_interior=8, n_terminal=8, n_boundary=8, n_supervised=8, device=torch.device("cpu"))
     losses = log_black_scholes_pinn_loss(model, batch, LogBlackScholesDomain())
+    assert torch.isfinite(losses.total)
+
+
+def test_parametric_pinn_loss_is_finite() -> None:
+    model = ParametricBlackScholesPINN(hidden_dim=8, hidden_layers=2)
+    batch = sample_parametric_black_scholes_batch(n_interior=8, n_terminal=8, n_boundary=8, n_supervised=8, device=torch.device("cpu"))
+    losses = parametric_black_scholes_pinn_loss(model, batch, ParametricBlackScholesDomain())
     assert torch.isfinite(losses.total)
 
 

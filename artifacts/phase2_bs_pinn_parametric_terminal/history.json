@@ -1,0 +1,1959 @@
+[
+  {
+    "phase": "pretrain",
+    "epoch": 1.0,
+    "supervised": 15.004505157470703
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 100.0,
+    "supervised": 0.16556210815906525
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 200.0,
+    "supervised": 0.15360328555107117
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 300.0,
+    "supervised": 0.148956760764122
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 400.0,
+    "supervised": 0.15166111290454865
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 500.0,
+    "supervised": 0.1535201370716095
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 600.0,
+    "supervised": 0.14990022778511047
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 700.0,
+    "supervised": 0.15259990096092224
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 800.0,
+    "supervised": 0.15029588341712952
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 900.0,
+    "supervised": 0.15005671977996826
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 1000.0,
+    "supervised": 0.15208052098751068
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 1100.0,
+    "supervised": 0.15266568958759308
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 1200.0,
+    "supervised": 0.15007515251636505
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 1300.0,
+    "supervised": 0.1503467559814453
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 1400.0,
+    "supervised": 0.15045671164989471
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 1500.0,
+    "supervised": 0.1479324996471405
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 1600.0,
+    "supervised": 0.14820459485054016
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 1700.0,
+    "supervised": 0.15115927159786224
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 1800.0,
+    "supervised": 0.14861445128917694
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 1900.0,
+    "supervised": 0.1450320929288864
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 2000.0,
+    "supervised": 0.1482330560684204
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 2100.0,
+    "supervised": 0.1473073661327362
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 2200.0,
+    "supervised": 0.14635099470615387
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 2300.0,
+    "supervised": 0.14464978873729706
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 2400.0,
+    "supervised": 0.14453184604644775
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 2500.0,
+    "supervised": 0.14201253652572632
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 2600.0,
+    "supervised": 0.14002656936645508
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 2700.0,
+    "supervised": 0.13397955894470215
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 2800.0,
+    "supervised": 0.12879151105880737
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 2900.0,
+    "supervised": 0.12239329516887665
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 3000.0,
+    "supervised": 0.12032181024551392
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 3100.0,
+    "supervised": 0.11275643110275269
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 3200.0,
+    "supervised": 0.11184047162532806
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 3300.0,
+    "supervised": 0.11667690426111221
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 3400.0,
+    "supervised": 0.1079447865486145
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 3500.0,
+    "supervised": 0.11586055159568787
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 3600.0,
+    "supervised": 0.10469967126846313
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 3700.0,
+    "supervised": 0.10152501612901688
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 3800.0,
+    "supervised": 0.10345523059368134
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 3900.0,
+    "supervised": 0.09758875519037247
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 4000.0,
+    "supervised": 0.0979057252407074
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 4100.0,
+    "supervised": 0.09186746180057526
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 4200.0,
+    "supervised": 0.09076326340436935
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 4300.0,
+    "supervised": 0.09004334360361099
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 4400.0,
+    "supervised": 0.08073024451732635
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 4500.0,
+    "supervised": 0.07580935955047607
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 4600.0,
+    "supervised": 0.0821794718503952
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 4700.0,
+    "supervised": 0.08115576952695847
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 4800.0,
+    "supervised": 0.07432405650615692
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 4900.0,
+    "supervised": 0.07944395393133163
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 5000.0,
+    "supervised": 0.07384732365608215
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 5100.0,
+    "supervised": 0.1958489567041397
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 5200.0,
+    "supervised": 0.06908779591321945
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 5300.0,
+    "supervised": 0.06893965601921082
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 5400.0,
+    "supervised": 0.10330255329608917
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 5500.0,
+    "supervised": 0.07321957498788834
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 5600.0,
+    "supervised": 0.07192661613225937
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 5700.0,
+    "supervised": 0.08847545832395554
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 5800.0,
+    "supervised": 0.07132738083600998
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 5900.0,
+    "supervised": 0.06913299858570099
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 6000.0,
+    "supervised": 0.08211745321750641
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 6100.0,
+    "supervised": 0.07005050033330917
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 6200.0,
+    "supervised": 0.15438994765281677
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 6300.0,
+    "supervised": 0.2211836725473404
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 6400.0,
+    "supervised": 0.14864224195480347
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 6500.0,
+    "supervised": 0.14504507184028625
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 6600.0,
+    "supervised": 0.14406397938728333
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 6700.0,
+    "supervised": 0.14590850472450256
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 6800.0,
+    "supervised": 0.1431487500667572
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 6900.0,
+    "supervised": 0.14057837426662445
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 7000.0,
+    "supervised": 0.13714562356472015
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 7100.0,
+    "supervised": 0.13731113076210022
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 7200.0,
+    "supervised": 0.13204500079154968
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 7300.0,
+    "supervised": 0.12741103768348694
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 7400.0,
+    "supervised": 0.12682990729808807
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 7500.0,
+    "supervised": 0.11935011297464371
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 7600.0,
+    "supervised": 0.11492345482110977
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 7700.0,
+    "supervised": 0.11335279047489166
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 7800.0,
+    "supervised": 0.1079430878162384
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 7900.0,
+    "supervised": 0.10414431989192963
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 8000.0,
+    "supervised": 0.09974952787160873
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 8100.0,
+    "supervised": 0.09897998720407486
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 8200.0,
+    "supervised": 0.09378387778997421
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 8300.0,
+    "supervised": 0.09129540622234344
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 8400.0,
+    "supervised": 0.08993909507989883
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 8500.0,
+    "supervised": 0.08513695001602173
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 8600.0,
+    "supervised": 0.08544846624135971
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 8700.0,
+    "supervised": 0.07981614023447037
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 8800.0,
+    "supervised": 0.08020058274269104
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 8900.0,
+    "supervised": 0.07927028834819794
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 9000.0,
+    "supervised": 0.07702042162418365
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 9100.0,
+    "supervised": 0.07558906823396683
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 9200.0,
+    "supervised": 0.07526428997516632
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 9300.0,
+    "supervised": 0.07440105825662613
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 9400.0,
+    "supervised": 0.07291523367166519
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 9500.0,
+    "supervised": 0.07370593398809433
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 9600.0,
+    "supervised": 0.07221678644418716
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 9700.0,
+    "supervised": 0.07328490167856216
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 9800.0,
+    "supervised": 0.07179670035839081
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 9900.0,
+    "supervised": 0.07104019820690155
+  },
+  {
+    "phase": "pretrain",
+    "epoch": 10000.0,
+    "supervised": 0.06993835419416428
+  },
+  {
+    "phase": "adam",
+    "epoch": 1.0,
+    "total": 0.14155986905097961,
+    "pde": 0.020045364275574684,
+    "terminal": 0.0,
+    "lower_boundary": 9.500092346570455e-06,
+    "upper_boundary": 0.022935789078474045,
+    "supervised": 0.007404157426208258
+  },
+  {
+    "phase": "adam",
+    "epoch": 100.0,
+    "total": 0.16908620297908783,
+    "pde": 0.002670104382559657,
+    "terminal": 0.0,
+    "lower_boundary": 1.1776003702834714e-05,
+    "upper_boundary": 0.004055534955114126,
+    "supervised": 0.011252914555370808
+  },
+  {
+    "phase": "adam",
+    "epoch": 200.0,
+    "total": 0.13047346472740173,
+    "pde": 0.005954713094979525,
+    "terminal": 0.0,
+    "lower_boundary": 2.614169034131919e-06,
+    "upper_boundary": 0.007162503432482481,
+    "supervised": 0.008378122001886368
+  },
+  {
+    "phase": "adam",
+    "epoch": 300.0,
+    "total": 0.1234206035733223,
+    "pde": 0.006358702201396227,
+    "terminal": 0.0,
+    "lower_boundary": 6.190779913595179e-06,
+    "upper_boundary": 0.008215357549488544,
+    "supervised": 0.007421893533319235
+  },
+  {
+    "phase": "adam",
+    "epoch": 400.0,
+    "total": 0.1165187656879425,
+    "pde": 0.0040458631701767445,
+    "terminal": 0.0,
+    "lower_boundary": 1.0586910320853349e-05,
+    "upper_boundary": 0.006839063484221697,
+    "supervised": 0.007041720673441887
+  },
+  {
+    "phase": "adam",
+    "epoch": 500.0,
+    "total": 0.10866811126470566,
+    "pde": 0.0025995299220085144,
+    "terminal": 0.0,
+    "lower_boundary": 2.2330090359901078e-05,
+    "upper_boundary": 0.0051438938826322556,
+    "supervised": 0.006771505810320377
+  },
+  {
+    "phase": "adam",
+    "epoch": 600.0,
+    "total": 0.11027787625789642,
+    "pde": 0.002245835028588772,
+    "terminal": 0.0,
+    "lower_boundary": 1.831127519835718e-05,
+    "upper_boundary": 0.004654488060623407,
+    "supervised": 0.005434437654912472
+  },
+  {
+    "phase": "adam",
+    "epoch": 700.0,
+    "total": 0.11259027570486069,
+    "pde": 0.0020347624085843563,
+    "terminal": 0.0,
+    "lower_boundary": 2.019531348196324e-05,
+    "upper_boundary": 0.004274583887308836,
+    "supervised": 0.004906847607344389
+  },
+  {
+    "phase": "adam",
+    "epoch": 800.0,
+    "total": 0.1207265555858612,
+    "pde": 0.0019210490863770247,
+    "terminal": 0.0,
+    "lower_boundary": 3.852239387924783e-05,
+    "upper_boundary": 0.0032228969503194094,
+    "supervised": 0.0047863502986729145
+  },
+  {
+    "phase": "adam",
+    "epoch": 900.0,
+    "total": 0.0921020582318306,
+    "pde": 0.00213427166454494,
+    "terminal": 0.0,
+    "lower_boundary": 1.9406701539992355e-05,
+    "upper_boundary": 0.003086960408836603,
+    "supervised": 0.004680476617068052
+  },
+  {
+    "phase": "adam",
+    "epoch": 1000.0,
+    "total": 0.09094012528657913,
+    "pde": 0.0022247761953622103,
+    "terminal": 0.0,
+    "lower_boundary": 2.6432913728058338e-05,
+    "upper_boundary": 0.002502170391380787,
+    "supervised": 0.004637435078620911
+  },
+  {
+    "phase": "adam",
+    "epoch": 1100.0,
+    "total": 0.08725206553936005,
+    "pde": 0.0024121690075844526,
+    "terminal": 0.0,
+    "lower_boundary": 2.8698757887468673e-05,
+    "upper_boundary": 0.002103144070133567,
+    "supervised": 0.004117810633033514
+  },
+  {
+    "phase": "adam",
+    "epoch": 1200.0,
+    "total": 0.08669859915971756,
+    "pde": 0.0024148686788976192,
+    "terminal": 0.0,
+    "lower_boundary": 1.487331792304758e-05,
+    "upper_boundary": 0.0018819530960172415,
+    "supervised": 0.004200528841465712
+  },
+  {
+    "phase": "adam",
+    "epoch": 1300.0,
+    "total": 0.10140304267406464,
+    "pde": 0.0028472088743001223,
+    "terminal": 0.0,
+    "lower_boundary": 3.630204810178839e-05,
+    "upper_boundary": 0.0015719607472419739,
+    "supervised": 0.0037732950877398252
+  },
+  {
+    "phase": "adam",
+    "epoch": 1400.0,
+    "total": 0.19253401458263397,
+    "pde": 0.0032891356386244297,
+    "terminal": 0.0,
+    "lower_boundary": 0.00019172245811205357,
+    "upper_boundary": 0.001397881656885147,
+    "supervised": 0.0031290447805076838
+  },
+  {
+    "phase": "adam",
+    "epoch": 1500.0,
+    "total": 0.09725017100572586,
+    "pde": 0.004155327565968037,
+    "terminal": 0.0,
+    "lower_boundary": 2.1092775568831712e-05,
+    "upper_boundary": 0.002322307089343667,
+    "supervised": 0.005785734858363867
+  },
+  {
+    "phase": "adam",
+    "epoch": 1600.0,
+    "total": 0.08322305232286453,
+    "pde": 0.0029791865963488817,
+    "terminal": 0.0,
+    "lower_boundary": 1.943333882081788e-05,
+    "upper_boundary": 0.0013754807878285646,
+    "supervised": 0.003930209670215845
+  },
+  {
+    "phase": "adam",
+    "epoch": 1700.0,
+    "total": 0.08392757177352905,
+    "pde": 0.0040322947315871716,
+    "terminal": 0.0,
+    "lower_boundary": 4.9034811127057765e-06,
+    "upper_boundary": 0.002538743196055293,
+    "supervised": 0.003571578301489353
+  },
+  {
+    "phase": "adam",
+    "epoch": 1800.0,
+    "total": 0.05592381954193115,
+    "pde": 0.004721087869256735,
+    "terminal": 0.0,
+    "lower_boundary": 1.5129881830944214e-05,
+    "upper_boundary": 0.0015810057520866394,
+    "supervised": 0.0026696790009737015
+  },
+  {
+    "phase": "adam",
+    "epoch": 1900.0,
+    "total": 0.07464265823364258,
+    "pde": 0.004015105776488781,
+    "terminal": 0.0,
+    "lower_boundary": 8.3976483438164e-06,
+    "upper_boundary": 0.0017548793694004416,
+    "supervised": 0.0038869809359312057
+  },
+  {
+    "phase": "adam",
+    "epoch": 2000.0,
+    "total": 0.058821551501750946,
+    "pde": 0.005849199835211039,
+    "terminal": 0.0,
+    "lower_boundary": 8.055792932282202e-06,
+    "upper_boundary": 0.001537275267764926,
+    "supervised": 0.0023840563371777534
+  },
+  {
+    "phase": "adam",
+    "epoch": 2100.0,
+    "total": 0.2863110303878784,
+    "pde": 0.00760370260104537,
+    "terminal": 0.0,
+    "lower_boundary": 0.00021455941896419972,
+    "upper_boundary": 0.001654667081311345,
+    "supervised": 0.002334084128960967
+  },
+  {
+    "phase": "adam",
+    "epoch": 2200.0,
+    "total": 0.05402858927845955,
+    "pde": 0.005801599007099867,
+    "terminal": 0.0,
+    "lower_boundary": 5.868178959644865e-06,
+    "upper_boundary": 0.0014826159458607435,
+    "supervised": 0.0024304871913045645
+  },
+  {
+    "phase": "adam",
+    "epoch": 2300.0,
+    "total": 0.08239101618528366,
+    "pde": 0.004809868987649679,
+    "terminal": 0.0,
+    "lower_boundary": 6.329579719022149e-06,
+    "upper_boundary": 0.0013462452916428447,
+    "supervised": 0.002557894214987755
+  },
+  {
+    "phase": "adam",
+    "epoch": 2400.0,
+    "total": 0.06869131326675415,
+    "pde": 0.005593561101704836,
+    "terminal": 0.0,
+    "lower_boundary": 4.310506483307108e-05,
+    "upper_boundary": 0.0013478546170517802,
+    "supervised": 0.0020411531440913677
+  },
+  {
+    "phase": "adam",
+    "epoch": 2500.0,
+    "total": 0.052612584084272385,
+    "pde": 0.0064118425361812115,
+    "terminal": 0.0,
+    "lower_boundary": 1.4047021977603436e-05,
+    "upper_boundary": 0.001149864518083632,
+    "supervised": 0.0020690043456852436
+  },
+  {
+    "phase": "adam",
+    "epoch": 2600.0,
+    "total": 0.06637004762887955,
+    "pde": 0.004804615397006273,
+    "terminal": 0.0,
+    "lower_boundary": 2.4318002033396624e-05,
+    "upper_boundary": 0.0013583103427663445,
+    "supervised": 0.001988848438486457
+  },
+  {
+    "phase": "adam",
+    "epoch": 2700.0,
+    "total": 0.09462789446115494,
+    "pde": 0.00355956400744617,
+    "terminal": 0.0,
+    "lower_boundary": 1.1337675459799357e-05,
+    "upper_boundary": 0.003643754404038191,
+    "supervised": 0.005439222790300846
+  },
+  {
+    "phase": "adam",
+    "epoch": 2800.0,
+    "total": 0.048164647072553635,
+    "pde": 0.005842499900609255,
+    "terminal": 0.0,
+    "lower_boundary": 9.880383004201576e-06,
+    "upper_boundary": 0.0015363922575488687,
+    "supervised": 0.0022311874199658632
+  },
+  {
+    "phase": "adam",
+    "epoch": 2900.0,
+    "total": 0.6044418215751648,
+    "pde": 0.011470709927380085,
+    "terminal": 0.0,
+    "lower_boundary": 0.0006061607855372131,
+    "upper_boundary": 0.0016308974009007215,
+    "supervised": 0.0022843917831778526
+  },
+  {
+    "phase": "adam",
+    "epoch": 3000.0,
+    "total": 0.0448322594165802,
+    "pde": 0.006717081647366285,
+    "terminal": 0.0,
+    "lower_boundary": 5.896734819543781e-06,
+    "upper_boundary": 0.0011657483410090208,
+    "supervised": 0.002068469300866127
+  },
+  {
+    "phase": "adam",
+    "epoch": 3100.0,
+    "total": 0.04091206192970276,
+    "pde": 0.0068305302411317825,
+    "terminal": 0.0,
+    "lower_boundary": 3.7053209780424368e-06,
+    "upper_boundary": 0.0010170575696974993,
+    "supervised": 0.0018112249672412872
+  },
+  {
+    "phase": "adam",
+    "epoch": 3200.0,
+    "total": 0.07055803388357162,
+    "pde": 0.005023346282541752,
+    "terminal": 0.0,
+    "lower_boundary": 6.959490292501869e-06,
+    "upper_boundary": 0.0017128778854385018,
+    "supervised": 0.00302113383077085
+  },
+  {
+    "phase": "adam",
+    "epoch": 3300.0,
+    "total": 0.14181265234947205,
+    "pde": 0.007583233527839184,
+    "terminal": 0.0,
+    "lower_boundary": 0.00010947864211630076,
+    "upper_boundary": 0.0009846360189840198,
+    "supervised": 0.0018808494787663221
+  },
+  {
+    "phase": "adam",
+    "epoch": 3400.0,
+    "total": 0.05749128386378288,
+    "pde": 0.006708356086164713,
+    "terminal": 0.0,
+    "lower_boundary": 4.754183919430943e-06,
+    "upper_boundary": 0.0012103981571272016,
+    "supervised": 0.0019993148744106293
+  },
+  {
+    "phase": "adam",
+    "epoch": 3500.0,
+    "total": 0.048470865935087204,
+    "pde": 0.006012685596942902,
+    "terminal": 0.0,
+    "lower_boundary": 2.0713170670205727e-05,
+    "upper_boundary": 0.0009350457112304866,
+    "supervised": 0.0015905178152024746
+  },
+  {
+    "phase": "adam",
+    "epoch": 3600.0,
+    "total": 0.16672299802303314,
+    "pde": 0.0062243142165243626,
+    "terminal": 0.0,
+    "lower_boundary": 0.00017387008119840175,
+    "upper_boundary": 0.001231167814694345,
+    "supervised": 0.0014924999559298158
+  },
+  {
+    "phase": "adam",
+    "epoch": 3700.0,
+    "total": 0.03620586544275284,
+    "pde": 0.007110612001270056,
+    "terminal": 0.0,
+    "lower_boundary": 2.583794412203133e-06,
+    "upper_boundary": 0.0007329834043048322,
+    "supervised": 0.0016070734709501266
+  },
+  {
+    "phase": "adam",
+    "epoch": 3800.0,
+    "total": 0.04010210931301117,
+    "pde": 0.005920152645558119,
+    "terminal": 0.0,
+    "lower_boundary": 3.3257929317187518e-06,
+    "upper_boundary": 0.0008960345876403153,
+    "supervised": 0.0018515505362302065
+  },
+  {
+    "phase": "adam",
+    "epoch": 3900.0,
+    "total": 0.03778332099318504,
+    "pde": 0.005796197336167097,
+    "terminal": 0.0,
+    "lower_boundary": 3.430254764680285e-06,
+    "upper_boundary": 0.0007747688214294612,
+    "supervised": 0.0016778011340647936
+  },
+  {
+    "phase": "adam",
+    "epoch": 4000.0,
+    "total": 0.039838097989559174,
+    "pde": 0.006939318496733904,
+    "terminal": 0.0,
+    "lower_boundary": 5.9173353292862885e-06,
+    "upper_boundary": 0.0007345237536355853,
+    "supervised": 0.001548093743622303
+  },
+  {
+    "phase": "adam",
+    "epoch": 4100.0,
+    "total": 0.04193120077252388,
+    "pde": 0.005103149451315403,
+    "terminal": 0.0,
+    "lower_boundary": 5.694642823073082e-06,
+    "upper_boundary": 0.0007632733322679996,
+    "supervised": 0.0016318028792738914
+  },
+  {
+    "phase": "adam",
+    "epoch": 4200.0,
+    "total": 0.03197476267814636,
+    "pde": 0.006742431782186031,
+    "terminal": 0.0,
+    "lower_boundary": 3.0608148335886654e-06,
+    "upper_boundary": 0.0006437557749450207,
+    "supervised": 0.0013529788702726364
+  },
+  {
+    "phase": "adam",
+    "epoch": 4300.0,
+    "total": 0.09671725332736969,
+    "pde": 0.006434348877519369,
+    "terminal": 0.0,
+    "lower_boundary": 8.660228922963142e-05,
+    "upper_boundary": 0.0008451209869235754,
+    "supervised": 0.0014190300134941936
+  },
+  {
+    "phase": "adam",
+    "epoch": 4400.0,
+    "total": 0.03745020553469658,
+    "pde": 0.006116720847785473,
+    "terminal": 0.0,
+    "lower_boundary": 1.4308963045550627e-06,
+    "upper_boundary": 0.0007800464518368244,
+    "supervised": 0.0014966825256124139
+  },
+  {
+    "phase": "adam",
+    "epoch": 4500.0,
+    "total": 0.06380164623260498,
+    "pde": 0.003661637892946601,
+    "terminal": 0.0,
+    "lower_boundary": 1.0951385775115341e-05,
+    "upper_boundary": 0.0017076339572668076,
+    "supervised": 0.0023648575879633427
+  },
+  {
+    "phase": "adam",
+    "epoch": 4600.0,
+    "total": 0.03265992924571037,
+    "pde": 0.005865678656846285,
+    "terminal": 0.0,
+    "lower_boundary": 2.839050466718618e-06,
+    "upper_boundary": 0.0007026325911283493,
+    "supervised": 0.0013449109392240644
+  },
+  {
+    "phase": "adam",
+    "epoch": 4700.0,
+    "total": 0.03227853775024414,
+    "pde": 0.006825604010373354,
+    "terminal": 0.0,
+    "lower_boundary": 1.122206413128879e-06,
+    "upper_boundary": 0.0006098263547755778,
+    "supervised": 0.001216283650137484
+  },
+  {
+    "phase": "adam",
+    "epoch": 4800.0,
+    "total": 0.027276664972305298,
+    "pde": 0.00655427947640419,
+    "terminal": 0.0,
+    "lower_boundary": 1.5490558098463225e-06,
+    "upper_boundary": 0.0007029335247352719,
+    "supervised": 0.0012394109508022666
+  },
+  {
+    "phase": "adam",
+    "epoch": 4900.0,
+    "total": 0.02914568781852722,
+    "pde": 0.00714403809979558,
+    "terminal": 0.0,
+    "lower_boundary": 2.1958858269499615e-06,
+    "upper_boundary": 0.0005286209634505212,
+    "supervised": 0.001116970437578857
+  },
+  {
+    "phase": "adam",
+    "epoch": 5000.0,
+    "total": 0.026562359184026718,
+    "pde": 0.006809272337704897,
+    "terminal": 0.0,
+    "lower_boundary": 6.58378212392563e-07,
+    "upper_boundary": 0.000589196861255914,
+    "supervised": 0.0011985755991190672
+  },
+  {
+    "phase": "adam",
+    "epoch": 5100.0,
+    "total": 0.025231685489416122,
+    "pde": 0.007369204889982939,
+    "terminal": 0.0,
+    "lower_boundary": 9.415044814886642e-07,
+    "upper_boundary": 0.0005474351346492767,
+    "supervised": 0.0010301223956048489
+  },
+  {
+    "phase": "adam",
+    "epoch": 5200.0,
+    "total": 0.02424745261669159,
+    "pde": 0.006778530310839415,
+    "terminal": 0.0,
+    "lower_boundary": 7.55928283524554e-07,
+    "upper_boundary": 0.0004989997250959277,
+    "supervised": 0.0010350571246817708
+  },
+  {
+    "phase": "adam",
+    "epoch": 5300.0,
+    "total": 0.02436690218746662,
+    "pde": 0.007298460695892572,
+    "terminal": 0.0,
+    "lower_boundary": 7.883988359935756e-07,
+    "upper_boundary": 0.00048155972035601735,
+    "supervised": 0.0009951074607670307
+  },
+  {
+    "phase": "adam",
+    "epoch": 5400.0,
+    "total": 0.02391221933066845,
+    "pde": 0.006803169380873442,
+    "terminal": 0.0,
+    "lower_boundary": 1.9009555671800626e-06,
+    "upper_boundary": 0.00044655552483163774,
+    "supervised": 0.0008993332157842815
+  },
+  {
+    "phase": "adam",
+    "epoch": 5500.0,
+    "total": 0.23807963728904724,
+    "pde": 0.004503572825342417,
+    "terminal": 0.0,
+    "lower_boundary": 4.519775029621087e-05,
+    "upper_boundary": 0.010811123065650463,
+    "supervised": 0.015089362859725952
+  },
+  {
+    "phase": "adam",
+    "epoch": 5600.0,
+    "total": 0.21190130710601807,
+    "pde": 0.0034232879988849163,
+    "terminal": 0.0,
+    "lower_boundary": 2.3241147573571652e-05,
+    "upper_boundary": 0.010631908662617207,
+    "supervised": 0.015163657255470753
+  },
+  {
+    "phase": "adam",
+    "epoch": 5700.0,
+    "total": 0.20659084618091583,
+    "pde": 0.0030832169577479362,
+    "terminal": 0.0,
+    "lower_boundary": 2.2042690034140833e-05,
+    "upper_boundary": 0.01046180073171854,
+    "supervised": 0.014969379641115665
+  },
+  {
+    "phase": "adam",
+    "epoch": 5800.0,
+    "total": 0.20496734976768494,
+    "pde": 0.0029581140261143446,
+    "terminal": 0.0,
+    "lower_boundary": 1.78374357346911e-05,
+    "upper_boundary": 0.010301356203854084,
+    "supervised": 0.014661994762718678
+  },
+  {
+    "phase": "adam",
+    "epoch": 5900.0,
+    "total": 0.19868603348731995,
+    "pde": 0.0030043048318475485,
+    "terminal": 0.0,
+    "lower_boundary": 1.6178022633539513e-05,
+    "upper_boundary": 0.010103699751198292,
+    "supervised": 0.014999989420175552
+  },
+  {
+    "phase": "adam",
+    "epoch": 6000.0,
+    "total": 0.2662142515182495,
+    "pde": 0.0030265941750258207,
+    "terminal": 0.0,
+    "lower_boundary": 5.1946790335932747e-05,
+    "upper_boundary": 0.009582536295056343,
+    "supervised": 0.013977318070828915
+  },
+  {
+    "phase": "adam",
+    "epoch": 6100.0,
+    "total": 0.19416171312332153,
+    "pde": 0.00305145513266325,
+    "terminal": 0.0,
+    "lower_boundary": 1.6601999959675595e-05,
+    "upper_boundary": 0.009429638274013996,
+    "supervised": 0.013824766501784325
+  },
+  {
+    "phase": "adam",
+    "epoch": 6200.0,
+    "total": 0.18365006148815155,
+    "pde": 0.003104007337242365,
+    "terminal": 0.0,
+    "lower_boundary": 1.5523501133429818e-05,
+    "upper_boundary": 0.008998941630125046,
+    "supervised": 0.01340187806636095
+  },
+  {
+    "phase": "adam",
+    "epoch": 6300.0,
+    "total": 0.171670600771904,
+    "pde": 0.0029714724514633417,
+    "terminal": 0.0,
+    "lower_boundary": 1.4233617548597977e-05,
+    "upper_boundary": 0.007598728407174349,
+    "supervised": 0.012607942335307598
+  },
+  {
+    "phase": "adam",
+    "epoch": 6400.0,
+    "total": 0.18267229199409485,
+    "pde": 0.0036219230387359858,
+    "terminal": 0.0,
+    "lower_boundary": 1.9257733583799563e-05,
+    "upper_boundary": 0.005736869759857655,
+    "supervised": 0.011798607185482979
+  },
+  {
+    "phase": "adam",
+    "epoch": 6500.0,
+    "total": 0.14808402955532074,
+    "pde": 0.004112474620342255,
+    "terminal": 0.0,
+    "lower_boundary": 1.2715434422716498e-05,
+    "upper_boundary": 0.005644965451210737,
+    "supervised": 0.010273447260260582
+  },
+  {
+    "phase": "adam",
+    "epoch": 6600.0,
+    "total": 0.14053678512573242,
+    "pde": 0.005438513588160276,
+    "terminal": 0.0,
+    "lower_boundary": 1.4751279195479583e-05,
+    "upper_boundary": 0.0054487609304487705,
+    "supervised": 0.009182634763419628
+  },
+  {
+    "phase": "adam",
+    "epoch": 6700.0,
+    "total": 0.14781075716018677,
+    "pde": 0.005175873637199402,
+    "terminal": 0.0,
+    "lower_boundary": 2.4443857910227962e-05,
+    "upper_boundary": 0.005441647954285145,
+    "supervised": 0.00885838083922863
+  },
+  {
+    "phase": "adam",
+    "epoch": 6800.0,
+    "total": 0.1396012306213379,
+    "pde": 0.005673864856362343,
+    "terminal": 0.0,
+    "lower_boundary": 1.8267921404913068e-05,
+    "upper_boundary": 0.005512750707566738,
+    "supervised": 0.00849075149744749
+  },
+  {
+    "phase": "adam",
+    "epoch": 6900.0,
+    "total": 0.12975649535655975,
+    "pde": 0.005252169910818338,
+    "terminal": 0.0,
+    "lower_boundary": 1.691828219918534e-05,
+    "upper_boundary": 0.00529538094997406,
+    "supervised": 0.00814096350222826
+  },
+  {
+    "phase": "adam",
+    "epoch": 7000.0,
+    "total": 0.13245131075382233,
+    "pde": 0.005831596441566944,
+    "terminal": 0.0,
+    "lower_boundary": 1.6803887774585746e-05,
+    "upper_boundary": 0.005156092345714569,
+    "supervised": 0.0077235084027051926
+  },
+  {
+    "phase": "adam",
+    "epoch": 7100.0,
+    "total": 0.11690990626811981,
+    "pde": 0.005132860969752073,
+    "terminal": 0.0,
+    "lower_boundary": 1.3966116057417821e-05,
+    "upper_boundary": 0.004920413251966238,
+    "supervised": 0.007819906808435917
+  },
+  {
+    "phase": "adam",
+    "epoch": 7200.0,
+    "total": 0.18142464756965637,
+    "pde": 0.006186559796333313,
+    "terminal": 0.0,
+    "lower_boundary": 3.8522550312336534e-05,
+    "upper_boundary": 0.00490172253921628,
+    "supervised": 0.006647332571446896
+  },
+  {
+    "phase": "adam",
+    "epoch": 7300.0,
+    "total": 0.10309003293514252,
+    "pde": 0.005205795168876648,
+    "terminal": 0.0,
+    "lower_boundary": 9.590680747351144e-06,
+    "upper_boundary": 0.004584928043186665,
+    "supervised": 0.006119488272815943
+  },
+  {
+    "phase": "adam",
+    "epoch": 7400.0,
+    "total": 0.1158251017332077,
+    "pde": 0.004827897530049086,
+    "terminal": 0.0,
+    "lower_boundary": 2.0921275790897198e-05,
+    "upper_boundary": 0.004460083320736885,
+    "supervised": 0.005270356312394142
+  },
+  {
+    "phase": "adam",
+    "epoch": 7500.0,
+    "total": 0.078790582716465,
+    "pde": 0.005860602017492056,
+    "terminal": 0.0,
+    "lower_boundary": 6.615587153646629e-06,
+    "upper_boundary": 0.004007702227681875,
+    "supervised": 0.0043144081719219685
+  },
+  {
+    "phase": "adam",
+    "epoch": 7600.0,
+    "total": 0.07809414714574814,
+    "pde": 0.006495208945125341,
+    "terminal": 0.0,
+    "lower_boundary": 8.665702807775233e-06,
+    "upper_boundary": 0.003575485199689865,
+    "supervised": 0.0036089750938117504
+  },
+  {
+    "phase": "adam",
+    "epoch": 7700.0,
+    "total": 0.06002911180257797,
+    "pde": 0.006846611853688955,
+    "terminal": 0.0,
+    "lower_boundary": 4.848124717682367e-06,
+    "upper_boundary": 0.0031766430474817753,
+    "supervised": 0.003195566823706031
+  },
+  {
+    "phase": "adam",
+    "epoch": 7800.0,
+    "total": 0.07107602059841156,
+    "pde": 0.0073554618284106255,
+    "terminal": 0.0,
+    "lower_boundary": 1.5319048543460667e-05,
+    "upper_boundary": 0.0028917016461491585,
+    "supervised": 0.0028808384668082
+  },
+  {
+    "phase": "adam",
+    "epoch": 7900.0,
+    "total": 0.07589880377054214,
+    "pde": 0.007786364294588566,
+    "terminal": 0.0,
+    "lower_boundary": 1.6100453649414703e-05,
+    "upper_boundary": 0.0027544100303202868,
+    "supervised": 0.002559505868703127
+  },
+  {
+    "phase": "adam",
+    "epoch": 8000.0,
+    "total": 0.05690012127161026,
+    "pde": 0.00740872323513031,
+    "terminal": 0.0,
+    "lower_boundary": 8.949997209128924e-06,
+    "upper_boundary": 0.002561991335824132,
+    "supervised": 0.0024684083182364702
+  },
+  {
+    "phase": "adam",
+    "epoch": 8100.0,
+    "total": 0.04603757709264755,
+    "pde": 0.007801181171089411,
+    "terminal": 0.0,
+    "lower_boundary": 2.248802502435865e-06,
+    "upper_boundary": 0.002439613686874509,
+    "supervised": 0.0022559689823538065
+  },
+  {
+    "phase": "adam",
+    "epoch": 8200.0,
+    "total": 0.04871872067451477,
+    "pde": 0.00793773215264082,
+    "terminal": 0.0,
+    "lower_boundary": 4.045110017614206e-06,
+    "upper_boundary": 0.0022960007190704346,
+    "supervised": 0.002163940342143178
+  },
+  {
+    "phase": "adam",
+    "epoch": 8300.0,
+    "total": 0.05059164762496948,
+    "pde": 0.007887271232903004,
+    "terminal": 0.0,
+    "lower_boundary": 6.749138719897019e-06,
+    "upper_boundary": 0.002092690672725439,
+    "supervised": 0.0019554293248802423
+  },
+  {
+    "phase": "adam",
+    "epoch": 8400.0,
+    "total": 0.04488158971071243,
+    "pde": 0.007522054016590118,
+    "terminal": 0.0,
+    "lower_boundary": 3.335773726576008e-06,
+    "upper_boundary": 0.001967082964256406,
+    "supervised": 0.001976235304027796
+  },
+  {
+    "phase": "adam",
+    "epoch": 8500.0,
+    "total": 0.14692367613315582,
+    "pde": 0.0068282922729849815,
+    "terminal": 0.0,
+    "lower_boundary": 6.872213998576626e-05,
+    "upper_boundary": 0.0022921485360711813,
+    "supervised": 0.001865180442109704
+  },
+  {
+    "phase": "adam",
+    "epoch": 8600.0,
+    "total": 0.037331268191337585,
+    "pde": 0.007302827201783657,
+    "terminal": 0.0,
+    "lower_boundary": 1.1949221061513526e-06,
+    "upper_boundary": 0.001794416457414627,
+    "supervised": 0.0018457649275660515
+  },
+  {
+    "phase": "adam",
+    "epoch": 8700.0,
+    "total": 0.10191936790943146,
+    "pde": 0.008087202906608582,
+    "terminal": 0.0,
+    "lower_boundary": 1.8264081518282183e-05,
+    "upper_boundary": 0.001883503864519298,
+    "supervised": 0.0017119164112955332
+  },
+  {
+    "phase": "adam",
+    "epoch": 8800.0,
+    "total": 0.03782987222075462,
+    "pde": 0.007694819010794163,
+    "terminal": 0.0,
+    "lower_boundary": 4.129778517381055e-06,
+    "upper_boundary": 0.0016894569853320718,
+    "supervised": 0.0016569156432524323
+  },
+  {
+    "phase": "adam",
+    "epoch": 8900.0,
+    "total": 0.036538951098918915,
+    "pde": 0.007368938997387886,
+    "terminal": 0.0,
+    "lower_boundary": 3.151327746309107e-06,
+    "upper_boundary": 0.0016041994094848633,
+    "supervised": 0.0016034900909289718
+  },
+  {
+    "phase": "adam",
+    "epoch": 9000.0,
+    "total": 0.040276359766721725,
+    "pde": 0.007920032367110252,
+    "terminal": 0.0,
+    "lower_boundary": 5.891226010135142e-06,
+    "upper_boundary": 0.0015811333432793617,
+    "supervised": 0.0015128332888707519
+  },
+  {
+    "phase": "adam",
+    "epoch": 9100.0,
+    "total": 0.032966095954179764,
+    "pde": 0.007148276083171368,
+    "terminal": 0.0,
+    "lower_boundary": 8.467885095342353e-07,
+    "upper_boundary": 0.0014469735324382782,
+    "supervised": 0.0015322227263823152
+  },
+  {
+    "phase": "adam",
+    "epoch": 9200.0,
+    "total": 0.05949011817574501,
+    "pde": 0.007899361662566662,
+    "terminal": 0.0,
+    "lower_boundary": 9.463591595704202e-06,
+    "upper_boundary": 0.001425126101821661,
+    "supervised": 0.0014819041825830936
+  },
+  {
+    "phase": "adam",
+    "epoch": 9300.0,
+    "total": 0.03505273908376694,
+    "pde": 0.007282653823494911,
+    "terminal": 0.0,
+    "lower_boundary": 1.7727290924085537e-06,
+    "upper_boundary": 0.0013215536018833518,
+    "supervised": 0.0014281602343544364
+  },
+  {
+    "phase": "adam",
+    "epoch": 9400.0,
+    "total": 0.06789077818393707,
+    "pde": 0.008239936083555222,
+    "terminal": 0.0,
+    "lower_boundary": 1.5653624359401874e-05,
+    "upper_boundary": 0.001227067899890244,
+    "supervised": 0.001363703515380621
+  },
+  {
+    "phase": "adam",
+    "epoch": 9500.0,
+    "total": 0.04042385518550873,
+    "pde": 0.007193790283054113,
+    "terminal": 0.0,
+    "lower_boundary": 6.475424925156403e-06,
+    "upper_boundary": 0.0011377165792509913,
+    "supervised": 0.001386640826240182
+  },
+  {
+    "phase": "adam",
+    "epoch": 9600.0,
+    "total": 0.06242391839623451,
+    "pde": 0.007968305610120296,
+    "terminal": 0.0,
+    "lower_boundary": 1.3501112334779464e-05,
+    "upper_boundary": 0.0010741136502474546,
+    "supervised": 0.0013730739010497928
+  },
+  {
+    "phase": "adam",
+    "epoch": 9700.0,
+    "total": 0.02827267162501812,
+    "pde": 0.007323801051825285,
+    "terminal": 0.0,
+    "lower_boundary": 6.302592510110117e-07,
+    "upper_boundary": 0.0010594583582133055,
+    "supervised": 0.001376847387291491
+  },
+  {
+    "phase": "adam",
+    "epoch": 9800.0,
+    "total": 0.09797326475381851,
+    "pde": 0.00627552904188633,
+    "terminal": 0.0,
+    "lower_boundary": 3.087108416366391e-05,
+    "upper_boundary": 0.0011034627677872777,
+    "supervised": 0.0014064713614061475
+  },
+  {
+    "phase": "adam",
+    "epoch": 9900.0,
+    "total": 0.03145783767104149,
+    "pde": 0.007092834450304508,
+    "terminal": 0.0,
+    "lower_boundary": 1.6346856455129455e-06,
+    "upper_boundary": 0.0010533714666962624,
+    "supervised": 0.0013125261757522821
+  },
+  {
+    "phase": "adam",
+    "epoch": 10000.0,
+    "total": 0.03617169335484505,
+    "pde": 0.007120000664144754,
+    "terminal": 0.0,
+    "lower_boundary": 7.5271645982866175e-06,
+    "upper_boundary": 0.00100451719481498,
+    "supervised": 0.0012008855119347572
+  },
+  {
+    "phase": "adam",
+    "epoch": 10100.0,
+    "total": 0.03766849264502525,
+    "pde": 0.007034349255263805,
+    "terminal": 0.0,
+    "lower_boundary": 1.07869518615189e-05,
+    "upper_boundary": 0.0009762970730662346,
+    "supervised": 0.001273203524760902
+  },
+  {
+    "phase": "adam",
+    "epoch": 10200.0,
+    "total": 0.039718154817819595,
+    "pde": 0.006802682299166918,
+    "terminal": 0.0,
+    "lower_boundary": 2.41419820667943e-06,
+    "upper_boundary": 0.0009498648578301072,
+    "supervised": 0.0011523920111358166
+  },
+  {
+    "phase": "adam",
+    "epoch": 10300.0,
+    "total": 0.31268519163131714,
+    "pde": 0.006642129737883806,
+    "terminal": 0.0,
+    "lower_boundary": 0.0001898171176435426,
+    "upper_boundary": 0.001275936490856111,
+    "supervised": 0.0015127640217542648
+  },
+  {
+    "phase": "adam",
+    "epoch": 10400.0,
+    "total": 0.25348395109176636,
+    "pde": 0.004693277645856142,
+    "terminal": 0.0,
+    "lower_boundary": 1.6783784303697757e-05,
+    "upper_boundary": 0.014769190922379494,
+    "supervised": 0.017308536916971207
+  },
+  {
+    "phase": "adam",
+    "epoch": 10500.0,
+    "total": 0.22383424639701843,
+    "pde": 0.0038639488629996777,
+    "terminal": 0.0,
+    "lower_boundary": 9.154008694167715e-06,
+    "upper_boundary": 0.014536078087985516,
+    "supervised": 0.01714349165558815
+  },
+  {
+    "phase": "adam",
+    "epoch": 10600.0,
+    "total": 0.22292709350585938,
+    "pde": 0.003782313084229827,
+    "terminal": 0.0,
+    "lower_boundary": 1.1420301234466024e-05,
+    "upper_boundary": 0.013975167647004128,
+    "supervised": 0.016322551295161247
+  },
+  {
+    "phase": "adam",
+    "epoch": 10700.0,
+    "total": 0.220866397023201,
+    "pde": 0.0034468460362404585,
+    "terminal": 0.0,
+    "lower_boundary": 1.2255858564458322e-05,
+    "upper_boundary": 0.013266055844724178,
+    "supervised": 0.01623956300318241
+  },
+  {
+    "phase": "adam",
+    "epoch": 10800.0,
+    "total": 0.2209356129169464,
+    "pde": 0.003283469472080469,
+    "terminal": 0.0,
+    "lower_boundary": 1.5762270777486265e-05,
+    "upper_boundary": 0.01231747679412365,
+    "supervised": 0.015783116221427917
+  },
+  {
+    "phase": "adam",
+    "epoch": 10900.0,
+    "total": 0.21375814080238342,
+    "pde": 0.003228045767173171,
+    "terminal": 0.0,
+    "lower_boundary": 2.0388974007801153e-05,
+    "upper_boundary": 0.01196048129349947,
+    "supervised": 0.015288548544049263
+  },
+  {
+    "phase": "adam",
+    "epoch": 11000.0,
+    "total": 0.20988358557224274,
+    "pde": 0.0031192556489259005,
+    "terminal": 0.0,
+    "lower_boundary": 2.073683572234586e-05,
+    "upper_boundary": 0.011658244766294956,
+    "supervised": 0.015552729368209839
+  },
+  {
+    "phase": "adam",
+    "epoch": 11100.0,
+    "total": 0.2057563215494156,
+    "pde": 0.003065256169065833,
+    "terminal": 0.0,
+    "lower_boundary": 1.8114433260052465e-05,
+    "upper_boundary": 0.011378027498722076,
+    "supervised": 0.015881439670920372
+  },
+  {
+    "phase": "adam",
+    "epoch": 11200.0,
+    "total": 0.22294411063194275,
+    "pde": 0.0029379946645349264,
+    "terminal": 0.0,
+    "lower_boundary": 2.142761877621524e-05,
+    "upper_boundary": 0.01006055437028408,
+    "supervised": 0.014432685449719429
+  },
+  {
+    "phase": "adam",
+    "epoch": 11300.0,
+    "total": 0.1965271383523941,
+    "pde": 0.0028215351048856974,
+    "terminal": 0.0,
+    "lower_boundary": 1.9378112483536825e-05,
+    "upper_boundary": 0.009352047927677631,
+    "supervised": 0.014412980526685715
+  },
+  {
+    "phase": "adam",
+    "epoch": 11400.0,
+    "total": 0.19133299589157104,
+    "pde": 0.002815456595271826,
+    "terminal": 0.0,
+    "lower_boundary": 1.9857285224134102e-05,
+    "upper_boundary": 0.008393474854528904,
+    "supervised": 0.013152718544006348
+  },
+  {
+    "phase": "adam",
+    "epoch": 11500.0,
+    "total": 0.16827015578746796,
+    "pde": 0.0032728698570281267,
+    "terminal": 0.0,
+    "lower_boundary": 1.4067276424611919e-05,
+    "upper_boundary": 0.00718680489808321,
+    "supervised": 0.011987384408712387
+  },
+  {
+    "phase": "adam",
+    "epoch": 11600.0,
+    "total": 0.15302744507789612,
+    "pde": 0.004557820502668619,
+    "terminal": 0.0,
+    "lower_boundary": 1.3657173440151382e-05,
+    "upper_boundary": 0.005896804854273796,
+    "supervised": 0.0099651999771595
+  },
+  {
+    "phase": "adam",
+    "epoch": 11700.0,
+    "total": 0.3645485043525696,
+    "pde": 0.00449543260037899,
+    "terminal": 0.0,
+    "lower_boundary": 7.534009637311101e-05,
+    "upper_boundary": 0.00529882125556469,
+    "supervised": 0.00883114617317915
+  },
+  {
+    "phase": "adam",
+    "epoch": 11800.0,
+    "total": 0.09269727766513824,
+    "pde": 0.008963437750935555,
+    "terminal": 0.0,
+    "lower_boundary": 2.8812730761273997e-06,
+    "upper_boundary": 0.005382142961025238,
+    "supervised": 0.006276414263993502
+  },
+  {
+    "phase": "adam",
+    "epoch": 11900.0,
+    "total": 0.09649816900491714,
+    "pde": 0.010987087152898312,
+    "terminal": 0.0,
+    "lower_boundary": 8.874802915670443e-06,
+    "upper_boundary": 0.005249056499451399,
+    "supervised": 0.005661481060087681
+  },
+  {
+    "phase": "adam",
+    "epoch": 12000.0,
+    "total": 0.07016968727111816,
+    "pde": 0.008399628102779388,
+    "terminal": 0.0,
+    "lower_boundary": 2.937433237093501e-06,
+    "upper_boundary": 0.004608942195773125,
+    "supervised": 0.004864836577326059
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 1.0,
+    "total": 0.07094646990299225,
+    "pde": 0.008444282226264477,
+    "terminal": 0.0,
+    "lower_boundary": 2.8282481707719853e-06,
+    "upper_boundary": 0.004891228396445513,
+    "supervised": 0.004943432752043009
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 25.0,
+    "total": 0.06529758125543594,
+    "pde": 0.010641884058713913,
+    "terminal": 0.0,
+    "lower_boundary": 4.2368997128505725e-06,
+    "upper_boundary": 0.005775907076895237,
+    "supervised": 0.004107588902115822
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 50.0,
+    "total": 0.05961757153272629,
+    "pde": 0.008014366962015629,
+    "terminal": 0.0,
+    "lower_boundary": 3.477351356195868e-06,
+    "upper_boundary": 0.004827769473195076,
+    "supervised": 0.0038777708541601896
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 75.0,
+    "total": 0.056517716497182846,
+    "pde": 0.008924349211156368,
+    "terminal": 0.0,
+    "lower_boundary": 2.8948088584002107e-06,
+    "upper_boundary": 0.00487302802503109,
+    "supervised": 0.003605304751545191
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 100.0,
+    "total": 0.054481036961078644,
+    "pde": 0.010016543790698051,
+    "terminal": 0.0,
+    "lower_boundary": 2.780056775009143e-06,
+    "upper_boundary": 0.004507872741669416,
+    "supervised": 0.0032809642143547535
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 125.0,
+    "total": 0.0517282709479332,
+    "pde": 0.00991183053702116,
+    "terminal": 0.0,
+    "lower_boundary": 2.4769935862423154e-06,
+    "upper_boundary": 0.004010685719549656,
+    "supervised": 0.003064401214942336
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 150.0,
+    "total": 0.04991352558135986,
+    "pde": 0.009909200482070446,
+    "terminal": 0.0,
+    "lower_boundary": 2.6626628368831007e-06,
+    "upper_boundary": 0.0037011471576988697,
+    "supervised": 0.0028854531701654196
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 175.0,
+    "total": 0.04866480082273483,
+    "pde": 0.0097407978028059,
+    "terminal": 0.0,
+    "lower_boundary": 1.8655869098438416e-06,
+    "upper_boundary": 0.0033472455106675625,
+    "supervised": 0.002748624887317419
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 200.0,
+    "total": 0.0470782034099102,
+    "pde": 0.009675862267613411,
+    "terminal": 0.0,
+    "lower_boundary": 2.6115756099898135e-06,
+    "upper_boundary": 0.002913581905886531,
+    "supervised": 0.0024844594299793243
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 225.0,
+    "total": 0.04595397785305977,
+    "pde": 0.009154105558991432,
+    "terminal": 0.0,
+    "lower_boundary": 3.2774153169157216e-06,
+    "upper_boundary": 0.0027612638659775257,
+    "supervised": 0.0024085077457129955
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 250.0,
+    "total": 0.04509998485445976,
+    "pde": 0.00899948738515377,
+    "terminal": 0.0,
+    "lower_boundary": 3.3881938179547433e-06,
+    "upper_boundary": 0.0025840734597295523,
+    "supervised": 0.002363093663007021
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 275.0,
+    "total": 0.04410812258720398,
+    "pde": 0.008879589848220348,
+    "terminal": 0.0,
+    "lower_boundary": 3.723661620824714e-06,
+    "upper_boundary": 0.0023661144077777863,
+    "supervised": 0.0022407507058233023
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 300.0,
+    "total": 0.04296867549419403,
+    "pde": 0.008468031883239746,
+    "terminal": 0.0,
+    "lower_boundary": 4.3844838728546165e-06,
+    "upper_boundary": 0.0020785131491720676,
+    "supervised": 0.0021293405443429947
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 325.0,
+    "total": 0.04175226390361786,
+    "pde": 0.00885480735450983,
+    "terminal": 0.0,
+    "lower_boundary": 4.631593583326321e-06,
+    "upper_boundary": 0.0016980789368972182,
+    "supervised": 0.001929081859998405
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 350.0,
+    "total": 0.04093417152762413,
+    "pde": 0.008604167029261589,
+    "terminal": 0.0,
+    "lower_boundary": 3.8134505757625448e-06,
+    "upper_boundary": 0.0016220859251916409,
+    "supervised": 0.0018545715138316154
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 375.0,
+    "total": 0.040467895567417145,
+    "pde": 0.008954097516834736,
+    "terminal": 0.0,
+    "lower_boundary": 4.240123416821007e-06,
+    "upper_boundary": 0.001570653636008501,
+    "supervised": 0.001841084798797965
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 400.0,
+    "total": 0.03958364948630333,
+    "pde": 0.00848349928855896,
+    "terminal": 0.0,
+    "lower_boundary": 4.728192834591027e-06,
+    "upper_boundary": 0.0013296609977260232,
+    "supervised": 0.0017717734444886446
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 425.0,
+    "total": 0.0387907475233078,
+    "pde": 0.008268683217465878,
+    "terminal": 0.0,
+    "lower_boundary": 4.933504442306003e-06,
+    "upper_boundary": 0.001250451779924333,
+    "supervised": 0.0017205403419211507
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 450.0,
+    "total": 0.037947386503219604,
+    "pde": 0.008003982715308666,
+    "terminal": 0.0,
+    "lower_boundary": 4.4610815166379325e-06,
+    "upper_boundary": 0.0012023214949294925,
+    "supervised": 0.001730377203784883
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 475.0,
+    "total": 0.037048567086458206,
+    "pde": 0.008090914227068424,
+    "terminal": 0.0,
+    "lower_boundary": 4.316341801313683e-06,
+    "upper_boundary": 0.0010541463270783424,
+    "supervised": 0.001728759496472776
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 500.0,
+    "total": 0.03650364279747009,
+    "pde": 0.007940839976072311,
+    "terminal": 0.0,
+    "lower_boundary": 3.706033567141276e-06,
+    "upper_boundary": 0.0010367599315941334,
+    "supervised": 0.0016844338970258832
+  },
+  {
+    "phase": "lbfgs",
+    "epoch": 12000.0,
+    "lbfgs_call": 525.0,
+    "total": 0.03566967695951462,
+    "pde": 0.00799243338406086,
+    "terminal": 0.0,
+    "lower_boundary": 4.995870312995976e-06,
+    "upper_boundary": 0.000989918946288526,
+    "supervised": 0.0015630099223926663
+  }
+]

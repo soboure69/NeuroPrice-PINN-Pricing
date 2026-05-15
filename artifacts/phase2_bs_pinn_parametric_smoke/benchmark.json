@@ -1,0 +1,15 @@
+{
+  "n_points": 10000,
+  "relative_l2": 0.21727114150497503,
+  "mean_point_relative_error": 130556527135.9859,
+  "median_point_relative_error": 0.3903256076560954,
+  "p95_point_relative_error": 605712408831.2998,
+  "p99_point_relative_error": 3520683639038.1973,
+  "max_absolute_error": 77.68971268859727,
+  "pct_points_under_0_5pct_error": 2.46,
+  "pct_points_under_1_0pct_error": 5.2,
+  "pinn_seconds": 0.013285699998959899,
+  "analytic_seconds": 0.002203300013206899,
+  "pinn_points_per_second": 752688.9814449274,
+  "analytic_points_per_second": 4538646.548385854
+}
