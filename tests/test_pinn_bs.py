@@ -4,6 +4,10 @@ import numpy as np
 import torch
 
 from neuroprice.pinn.collocation import sample_black_scholes_batch
+from neuroprice.pinn.barrier import BarrierOptionDomain, DownAndOutBarrierPINN, barrier_pinn_loss, sample_barrier_batch
+from neuroprice.pinn.asian import AsianArithmeticPINN, AsianOptionDomain, asian_pinn_loss, sample_asian_batch
+from neuroprice.pinn.asian_surrogate import AsianArithmeticSurrogate
+from neuroprice.pinn.lookback_surrogate import LookbackFloatingCallSurrogate
 from neuroprice.pinn.log_bs import (
     LogBlackScholesDomain,
     LogBlackScholesPINN,
@@ -27,6 +31,9 @@ from neuroprice.validation.black_scholes_ref import (
     masked_relative_l2_error,
     relative_l2_error,
 )
+from neuroprice.validation.barrier_ref import down_and_out_call_price_np
+from neuroprice.validation.asian_ref import asian_arithmetic_call_mc_np
+from neuroprice.validation.lookback_ref import lookback_floating_call_mc_np
 
 
 def test_pinn_forward_shape() -> None:
@@ -49,6 +56,39 @@ def test_parametric_pinn_forward_shape() -> None:
     model = ParametricBlackScholesPINN(hidden_dim=8, hidden_layers=2)
     inputs = [torch.rand(5, 1) for _ in range(6)]
     out = model(*inputs)
+    assert out.shape == (5, 1)
+
+
+def test_barrier_pinn_forward_shape() -> None:
+    model = DownAndOutBarrierPINN(hidden_dim=8, hidden_layers=2)
+    S = torch.rand(5, 1)
+    tau = torch.rand(5, 1)
+    out = model(S, tau)
+    assert out.shape == (5, 1)
+
+
+def test_asian_pinn_forward_shape() -> None:
+    model = AsianArithmeticPINN(hidden_dim=8, hidden_layers=2)
+    S = torch.rand(5, 1)
+    A = torch.rand(5, 1)
+    tau = torch.rand(5, 1)
+    out = model(S, A, tau)
+    assert out.shape == (5, 1)
+
+
+def test_asian_surrogate_forward_shape() -> None:
+    model = AsianArithmeticSurrogate(hidden_dim=8, hidden_layers=2)
+    S = torch.rand(5, 1)
+    tau = torch.rand(5, 1)
+    out = model(S, tau)
+    assert out.shape == (5, 1)
+
+
+def test_lookback_surrogate_forward_shape() -> None:
+    model = LookbackFloatingCallSurrogate(hidden_dim=8, hidden_layers=2)
+    S = torch.rand(5, 1)
+    tau = torch.rand(5, 1)
+    out = model(S, tau)
     assert out.shape == (5, 1)
 
 
@@ -99,6 +139,22 @@ def test_parametric_pinn_loss_is_finite() -> None:
     assert torch.isfinite(losses.total)
 
 
+def test_barrier_pinn_loss_is_finite() -> None:
+    domain = BarrierOptionDomain()
+    model = DownAndOutBarrierPINN(hidden_dim=8, hidden_layers=2, B=domain.B, K=domain.K, r=domain.r, T=domain.T, S_max=domain.S_max)
+    batch = sample_barrier_batch(n_interior=8, n_terminal=8, n_boundary=8, n_supervised=8, device=torch.device("cpu"), domain=domain)
+    losses = barrier_pinn_loss(model, batch, domain)
+    assert torch.isfinite(losses.total)
+
+
+def test_asian_pinn_loss_is_finite() -> None:
+    domain = AsianOptionDomain()
+    model = AsianArithmeticPINN(hidden_dim=8, hidden_layers=2)
+    batch = sample_asian_batch(n_interior=8, n_terminal=8, n_boundary=8, n_supervised=0, device=torch.device("cpu"), domain=domain)
+    losses = asian_pinn_loss(model, batch, domain)
+    assert torch.isfinite(losses.total)
+
+
 def test_improved_sampling_shapes_and_ranges() -> None:
     batch = sample_black_scholes_batch(
         n_interior=99,
@@ -137,6 +193,32 @@ def test_black_scholes_reference_vectorized() -> None:
     assert ref.shape == (3,)
     assert np.all(ref >= 0.0)
     assert relative_l2_error(ref, ref) < 1e-12
+
+
+def test_down_and_out_barrier_reference_vectorized() -> None:
+    S = np.array([60.0, 80.0, 120.0])
+    tau = np.array([1.0, 1.0, 1.0])
+    ref = down_and_out_call_price_np(S, tau, K=100.0, B=70.0, r=0.05, sigma=0.20)
+    assert ref.shape == (3,)
+    assert ref[0] == 0.0
+    assert np.all(ref >= 0.0)
+
+
+def test_asian_arithmetic_reference_shape_and_terminal() -> None:
+    S = np.array([80.0, 100.0, 120.0])
+    A = np.array([90.0, 110.0, 130.0])
+    tau = np.zeros_like(S)
+    prices = asian_arithmetic_call_mc_np(S, A, tau, K=100.0, r=0.05, sigma=0.2, n_paths=200, n_steps=4, seed=123, chunk_size=50)
+    assert prices.shape == (3, 1)
+    assert np.allclose(prices.reshape(-1), np.maximum(A - 100.0, 0.0))
+
+
+def test_lookback_floating_reference_shape_and_terminal() -> None:
+    S = np.array([80.0, 100.0, 120.0])
+    tau = np.zeros_like(S)
+    prices = lookback_floating_call_mc_np(S, tau, r=0.05, sigma=0.2, n_paths=200, n_steps=4, seed=123, chunk_size=50)
+    assert prices.shape == (3, 1)
+    assert np.allclose(prices.reshape(-1), np.zeros_like(S))
 
 
 def test_log_black_scholes_reference_torch_is_finite() -> None:

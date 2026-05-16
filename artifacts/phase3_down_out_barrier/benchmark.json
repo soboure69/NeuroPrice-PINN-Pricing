@@ -1,0 +1,23 @@
+{
+  "n_points": 10000,
+  "relative_floor": 1.0,
+  "min_reference_price": 1.0,
+  "n_tradable_points": 9357,
+  "relative_l2": 0.0029570069804198164,
+  "mean_point_relative_error": 0.0630914301764255,
+  "median_point_relative_error": 0.0021127509832476743,
+  "p95_point_relative_error": 0.5362823861244659,
+  "p99_point_relative_error": 1.000205001780443,
+  "tradable_mean_point_relative_error": 0.02163062644299335,
+  "tradable_median_point_relative_error": 0.0018399816066885996,
+  "tradable_p95_point_relative_error": 0.0989036582440044,
+  "tradable_pct_points_under_1pct_error": 83.19974350753446,
+  "tradable_pct_points_under_5pct_error": 93.42738057069575,
+  "max_absolute_error": 2.596395607073802,
+  "near_barrier_mean_relative_error": 0.533834899074993,
+  "near_strike_mean_relative_error": 0.11752508957569381,
+  "pinn_seconds": 0.021076300006825477,
+  "analytic_seconds": 0.010685200002626516,
+  "pinn_points_per_second": 474466.5807927169,
+  "analytic_points_per_second": 935873.9188355774
+}
