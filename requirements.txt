@@ -3,6 +3,11 @@ scipy
 matplotlib
 pandas
 pytest
+fastapi
+uvicorn
+httpx
+redis
+locust
 jupyterlab
 ipykernel
 torch

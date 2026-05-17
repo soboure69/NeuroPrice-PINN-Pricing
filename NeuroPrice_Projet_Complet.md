@@ -1453,16 +1453,16 @@ Validation : Monte Carlo haute précision (10M simulations)
 - [ ] Logging structuré
 
 #### Semaine 26-27 : Optimisation & Cache
-- [ ] Cache Redis pour résultats fréquents
-- [ ] Chargement des modèles en mémoire au démarrage (pas à chaque requête)
-- [ ] Tests de charge (Locust) : 100 req/s cible
-- [ ] Documentation Swagger auto-générée
+- [x] Cache Redis pour résultats fréquents
+- [x] Chargement des modèles en mémoire au démarrage (pas à chaque requête)
+- [x] Tests de charge (Locust) : 100 req/s cible
+- [x] Documentation Swagger auto-générée
 
 #### Semaine 28 : Dockerisation
-- [ ] Dockerfile API
-- [ ] docker-compose complet (API + Redis)
-- [ ] Test en local end-to-end
-- [ ] CI/CD GitHub Actions : tests automatiques
+- [x] Dockerfile API
+- [x] docker-compose complet (API + Redis)
+- [x] Test en local end-to-end
+- [x] CI/CD GitHub Actions : tests automatiques
 
 **Livrable Phase 4 :** API containerisée, documentée, testée
 

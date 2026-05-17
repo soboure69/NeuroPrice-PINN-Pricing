@@ -1,0 +1,15 @@
+.git
+.pytest_cache
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.log
+.ipynb_checkpoints
+notebooks
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
