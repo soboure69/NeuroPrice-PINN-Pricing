@@ -51,6 +51,7 @@ async def log_requests(request: Request, call_next):
     response = await call_next(request)
     elapsed_ms = (time.perf_counter() - start) * 1000.0
     logger.info("method=%s path=%s status=%s elapsed_ms=%.3f", request.method, request.url.path, response.status_code, elapsed_ms)
+    response.headers["X-NeuroPrice-CORS-Origins"] = ",".join(cors_origins)
     return response
 
 
@@ -62,6 +63,11 @@ async def pricing_error_handler(_: Request, exc: PricingError) -> JSONResponse:
 @app.get("/health")
 def health() -> dict[str, str]:
     return {"status": "ok", "service": "neuroprice-api", "cache_backend": get_cache().backend}
+
+
+@app.get("/debug/cors")
+def debug_cors(request: Request) -> dict[str, object]:
+    return {"origin": request.headers.get("origin"), "allowed_origins": cors_origins}
 
 
 @app.post("/api/v1/price", response_model=PricingResponse)

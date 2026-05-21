@@ -84,7 +84,7 @@ export function PricingDashboard() {
       consumeQuota();
     } catch (exc) {
       if (exc instanceof TypeError) {
-        setError(`API inaccessible à ${apiUrl}. Vérifie que FastAPI tourne sur le port 8000 et que NEXT_PUBLIC_API_URL pointe vers la bonne URL.`);
+        setError(`API inaccessible à ${apiUrl}. Erreur navigateur: ${exc.message}. Vérifie CORS_ORIGINS côté Render et la console réseau du navigateur.`);
       } else {
         setError(exc instanceof Error ? exc.message : "Unknown pricing error");
       }
