@@ -5,15 +5,23 @@ from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
-import torch
 
 from api.schemas import PricingRequest, PricingResponse
-from neuroprice.pinn.asian_surrogate import AsianArithmeticSurrogate, AsianSurrogateDomain
-from neuroprice.pinn.lookback_surrogate import LookbackFloatingCallSurrogate, LookbackSurrogateDomain
 from neuroprice.validation.asian_ref import asian_arithmetic_call_mc_np
 from neuroprice.validation.barrier_ref import down_and_out_call_price_np
 from neuroprice.validation.black_scholes_ref import black_scholes_call_delta_np, black_scholes_call_gamma_np, black_scholes_call_price_np
 from neuroprice.validation.lookback_ref import lookback_floating_call_mc_np
+
+try:
+    import torch
+    from neuroprice.pinn.asian_surrogate import AsianArithmeticSurrogate, AsianSurrogateDomain
+    from neuroprice.pinn.lookback_surrogate import LookbackFloatingCallSurrogate, LookbackSurrogateDomain
+except ImportError:
+    torch = None
+    AsianArithmeticSurrogate = None
+    AsianSurrogateDomain = None
+    LookbackFloatingCallSurrogate = None
+    LookbackSurrogateDomain = None
 
 PROJECT_ROOT = next(path for path in [Path.cwd(), *Path.cwd().parents] if (path / "neuroprice").exists())
 
@@ -31,12 +39,16 @@ def preload_models() -> dict[str, bool]:
 
 
 @lru_cache(maxsize=1)
-def get_device() -> torch.device:
+def get_device():
+    if torch is None:
+        return None
     return torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 
 @lru_cache(maxsize=1)
 def load_asian_surrogate() -> tuple[AsianArithmeticSurrogate, AsianSurrogateDomain] | None:
+    if torch is None or AsianArithmeticSurrogate is None or AsianSurrogateDomain is None:
+        return None
     path = PROJECT_ROOT / "artifacts" / "phase3_asian_surrogate_offline" / "asian_surrogate.pt"
     if not path.exists():
         return None
@@ -53,6 +65,8 @@ def load_asian_surrogate() -> tuple[AsianArithmeticSurrogate, AsianSurrogateDoma
 
 @lru_cache(maxsize=1)
 def load_lookback_surrogate() -> tuple[LookbackFloatingCallSurrogate, LookbackSurrogateDomain] | None:
+    if torch is None or LookbackFloatingCallSurrogate is None or LookbackSurrogateDomain is None:
+        return None
     path = PROJECT_ROOT / "artifacts" / "phase3_lookback_surrogate_offline" / "lookback_surrogate.pt"
     if not path.exists():
         return None

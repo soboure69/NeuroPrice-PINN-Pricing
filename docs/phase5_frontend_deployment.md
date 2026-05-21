@@ -212,6 +212,13 @@ Health check path : /health
 Environment variable : REDIS_URL=<upstash-redis-url>
 ```
 
+Image Docker MVP :
+
+```text
+Le Dockerfile utilise requirements-api.txt pour éviter d'installer Jupyter, Locust, Torch CUDA et les artefacts lourds sur Render Free.
+Les options exotiques utilisent les méthodes de référence si les checkpoints Torch ne sont pas disponibles.
+```
+
 ## Authentification et quotas
 
 La première itération pose l'interface publique, le dashboard et un MVP auth/quota local.
