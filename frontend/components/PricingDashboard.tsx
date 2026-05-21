@@ -24,7 +24,7 @@ const instruments: { value: Instrument; label: string }[] = [
   { value: "lookback_floating_call", label: "Lookback Floating" },
 ];
 
-const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000").replace(/\/$/, "");
+const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "https://neuroprice-api.onrender.com").replace(/\/$/, "");
 
 export function PricingDashboard() {
   const { user, remaining, consumeQuota } = useAuth();

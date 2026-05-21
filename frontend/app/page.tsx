@@ -9,7 +9,7 @@ const plans = [
   { name: "Enterprise", price: "Sur devis", features: ["Batch pricing", "SLA API", "Déploiement dédié"] },
 ];
 
-const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000").replace(/\/$/, "");
+const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "https://neuroprice-api.onrender.com").replace(/\/$/, "");
 
 export default function Home() {
   return (
