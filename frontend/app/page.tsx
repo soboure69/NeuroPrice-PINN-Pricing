@@ -9,6 +9,8 @@ const plans = [
   { name: "Enterprise", price: "Sur devis", features: ["Batch pricing", "SLA API", "Déploiement dédié"] },
 ];
 
+const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "http://127.0.0.1:8000").replace(/\/$/, "");
+
 export default function Home() {
   return (
     <main>
@@ -32,7 +34,7 @@ export default function Home() {
           <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">NeuroPrice transforme les modèles PINN, Monte Carlo et Black-Scholes en un produit utilisable par desks quant, équipes risk et étudiants finance quantitative.</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a href="#dashboard" className="inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 font-semibold text-slate-950 hover:bg-sky-300">Lancer un pricing <ArrowRight size={18} /></a>
-            <a href="http://127.0.0.1:8000/docs" className="inline-flex items-center justify-center rounded-xl border border-slate-700 px-6 py-3 font-semibold text-white hover:border-sky-400">Swagger API</a>
+            <a href={`${apiUrl}/docs`} className="inline-flex items-center justify-center rounded-xl border border-slate-700 px-6 py-3 font-semibold text-white hover:border-sky-400">Swagger API</a>
           </div>
         </div>
 
