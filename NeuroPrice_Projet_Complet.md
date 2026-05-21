@@ -1473,11 +1473,13 @@ Validation : Monte Carlo haute précision (10M simulations)
 **Objectif :** Interface web utilisable par des non-programmeurs.
 
 #### Semaine 29-32 : Frontend Next.js
-- [ ] Landing page (présentation du produit, pricing des plans)
-- [ ] Dashboard de pricing (formulaire + résultats + graphiques)
-- [ ] Graphiques Plotly : surface de prix, Greeks vs S, convergence
-- [ ] Système d'authentification (NextAuth.js)
-- [ ] Gestion des quotas par tier (freemium)
+- [x] Landing page (présentation du produit, pricing des plans)
+- [x] Dashboard de pricing (formulaire + résultats + graphiques)
+- [x] Graphiques Plotly : surface de prix, Greeks vs S, convergence
+- [x] MVP authentification locale beta (localStorage)
+- [x] MVP quotas par tier freemium côté navigateur
+- [ ] Système d'authentification production (NextAuth.js)
+- [ ] Gestion des quotas par tier côté serveur
 
 #### Semaine 33-34 : Déploiement Cloud
 - [ ] Déploiement API sur Render / Railway (gratuit pour MVP)
