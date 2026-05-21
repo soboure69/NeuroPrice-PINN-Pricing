@@ -1482,8 +1482,8 @@ Validation : Monte Carlo haute précision (10M simulations)
 - [ ] Gestion des quotas par tier côté serveur
 
 #### Semaine 33-34 : Déploiement Cloud
-- [ ] Déploiement API sur Render / Railway (gratuit pour MVP)
-- [ ] Déploiement Frontend sur Vercel (gratuit)
+- [x] Déploiement API sur Render / Railway (gratuit pour MVP)
+- [x] Déploiement Frontend sur Vercel (gratuit)
 - [ ] Base de données PostgreSQL (Neon.tech, gratuit)
 - [ ] Redis sur Upstash (gratuit pour démarrer)
 - [ ] Monitoring Sentry (erreurs)
