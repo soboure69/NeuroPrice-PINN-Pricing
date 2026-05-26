@@ -1485,7 +1485,7 @@ Validation : Monte Carlo haute précision (10M simulations)
 - [x] Déploiement API sur Render / Railway (gratuit pour MVP)
 - [x] Déploiement Frontend sur Vercel (gratuit)
 - [ ] Base de données PostgreSQL (Neon.tech, gratuit)
-- [ ] Redis sur Upstash (gratuit pour démarrer)
+- [x] Redis sur Upstash (gratuit pour démarrer)
 - [ ] Monitoring Sentry (erreurs)
 - [ ] Analytics (Plausible ou Posthog)
 

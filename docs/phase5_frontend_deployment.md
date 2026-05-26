@@ -248,10 +248,10 @@ Sentry pour monitoring erreurs
 ## Checklist Phase 5 — Semaine 33-34
 
 ```text
-[ ] Déploiement API sur Render / Railway
-[ ] Déploiement Frontend sur Vercel
+[x] Déploiement API sur Render / Railway
+[x] Déploiement Frontend sur Vercel
 [ ] Base de données PostgreSQL Neon
-[ ] Redis Upstash
+[x] Redis Upstash
 [ ] Monitoring Sentry
 [ ] Analytics Plausible ou PostHog
 ```
