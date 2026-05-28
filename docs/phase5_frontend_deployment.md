@@ -227,10 +227,26 @@ La première itération pose l'interface publique, le dashboard et un MVP auth/q
 
 Les quotas serveur utilisent PostgreSQL si `DATABASE_URL` est défini côté API. Le frontend transmet l'identité beta locale via les headers `X-NeuroPrice-User-Email` et `X-NeuroPrice-User-Plan`, puis FastAPI enregistre les événements mensuels dans Neon.
 
+L'authentification production utilise NextAuth avec Google OAuth. Le plan reste sélectionné dans l'interface MVP, mais l'email transmis à l'API vient de la session Google.
+
+Variables Vercel requises pour NextAuth :
+
+```text
+AUTH_SECRET=<secret-long-aleatoire>
+AUTH_GOOGLE_ID=<google-oauth-client-id>
+AUTH_GOOGLE_SECRET=<google-oauth-client-secret>
+AUTH_URL=https://<frontend-vercel-url>
+```
+
+Callback Google OAuth autorisé :
+
+```text
+https://<frontend-vercel-url>/api/auth/callback/google
+```
+
 À intégrer ensuite pour production :
 
 ```text
-NextAuth.js pour sessions utilisateur
 PostgreSQL Neon pour users, plans et quotas
 Middleware quota par tier freemium
 Analytics PostHog ou Plausible

@@ -13,6 +13,7 @@
     "autoprefixer": "^10.4.20",
     "lucide-react": "^0.468.0",
     "next": "^15.1.0",
+    "next-auth": "^5.0.0-beta.25",
     "plotly.js": "^2.35.3",
     "plotly.js-dist-min": "^2.35.3",
     "postcss": "^8.4.49",

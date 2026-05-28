@@ -1,5 +1,6 @@
 "use client";
 
+import { SessionProvider, signIn as nextAuthSignIn, signOut as nextAuthSignOut, useSession } from "next-auth/react";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 type Plan = "free" | "quant" | "enterprise";
@@ -19,7 +20,9 @@ type AuthContextValue = {
   usage: Usage;
   quota: number;
   remaining: number;
-  signIn: (email: string, plan: Plan) => void;
+  plan: Plan;
+  setPlan: (plan: Plan) => void;
+  signIn: () => void;
   signOut: () => void;
   consumeQuota: () => boolean;
 };
@@ -37,14 +40,20 @@ function currentMonth() {
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
+  return <SessionProvider><AuthStateProvider>{children}</AuthStateProvider></SessionProvider>;
+}
+
+function AuthStateProvider({ children }: { children: React.ReactNode }) {
+  const { data: session } = useSession();
+  const [plan, setPlanState] = useState<Plan>("free");
   const [user, setUser] = useState<User | null>(null);
   const [usage, setUsage] = useState<Usage>({ month: currentMonth(), count: 0 });
 
   useEffect(() => {
-    const savedUser = window.localStorage.getItem("neuroprice:user");
+    const savedPlan = window.localStorage.getItem("neuroprice:plan") as Plan | null;
     const savedUsage = window.localStorage.getItem("neuroprice:usage");
-    if (savedUser) {
-      setUser(JSON.parse(savedUser));
+    if (savedPlan && savedPlan in quotas) {
+      setPlanState(savedPlan);
     }
     if (savedUsage) {
       const parsedUsage = JSON.parse(savedUsage) as Usage;
@@ -52,7 +61,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  const quota = user ? quotas[user.plan] : quotas.free;
+  useEffect(() => {
+    const email = session?.user?.email;
+    setUser(email ? { email, plan } : null);
+  }, [plan, session?.user?.email]);
+
+  const quota = quotas[plan];
   const remaining = Math.max(quota - usage.count, 0);
 
   const value = useMemo<AuthContextValue>(() => ({
@@ -60,14 +74,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     usage,
     quota,
     remaining,
-    signIn: (email: string, plan: Plan) => {
-      const nextUser = { email, plan };
-      setUser(nextUser);
-      window.localStorage.setItem("neuroprice:user", JSON.stringify(nextUser));
+    plan,
+    setPlan: (nextPlan: Plan) => {
+      setPlanState(nextPlan);
+      window.localStorage.setItem("neuroprice:plan", nextPlan);
     },
+    signIn: () => nextAuthSignIn("google"),
     signOut: () => {
       setUser(null);
-      window.localStorage.removeItem("neuroprice:user");
+      nextAuthSignOut();
     },
     consumeQuota: () => {
       if (remaining <= 0) {
@@ -78,7 +93,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       window.localStorage.setItem("neuroprice:usage", JSON.stringify(nextUsage));
       return true;
     },
-  }), [quota, remaining, usage, user]);
+  }), [plan, quota, remaining, usage, user]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
