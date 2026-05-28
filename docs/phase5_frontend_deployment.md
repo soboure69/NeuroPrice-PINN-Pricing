@@ -194,6 +194,7 @@ Variables API cloud :
 
 ```text
 REDIS_URL=<upstash-redis-url>
+DATABASE_URL=<neon-postgresql-url>
 ```
 
 Le fichier suivant fournit une configuration Render Docker minimale :
@@ -210,6 +211,7 @@ Environment : Docker
 Dockerfile path : ./Dockerfile
 Health check path : /health
 Environment variable : REDIS_URL=<upstash-redis-url>
+Environment variable : DATABASE_URL=<neon-postgresql-url>
 ```
 
 Image Docker MVP :
@@ -222,6 +224,8 @@ Les options exotiques utilisent les méthodes de référence si les checkpoints 
 ## Authentification et quotas
 
 La première itération pose l'interface publique, le dashboard et un MVP auth/quota local.
+
+Les quotas serveur utilisent PostgreSQL si `DATABASE_URL` est défini côté API. Le frontend transmet l'identité beta locale via les headers `X-NeuroPrice-User-Email` et `X-NeuroPrice-User-Plan`, puis FastAPI enregistre les événements mensuels dans Neon.
 
 À intégrer ensuite pour production :
 

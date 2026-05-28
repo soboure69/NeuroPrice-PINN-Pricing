@@ -12,6 +12,7 @@ from fastapi.responses import JSONResponse
 
 from api.cache import get_cache
 from api.pricing_service import PricingError, preload_models, price
+from api.quota import get_quota_store
 from api.schemas import BatchPricingRequest, BatchPricingResponse, PricingRequest, PricingResponse
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -25,7 +26,9 @@ cors_origins = [origin.strip() for origin in os.getenv("CORS_ORIGINS", DEFAULT_C
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     loaded_models = preload_models()
     cache = get_cache()
-    logger.info("startup loaded_models=%s cache_backend=%s", loaded_models, cache.backend)
+    quota_store = get_quota_store()
+    quota_store.init_schema()
+    logger.info("startup loaded_models=%s cache_backend=%s quota_backend=%s", loaded_models, cache.backend, quota_store.backend)
     yield
 
 
@@ -62,7 +65,7 @@ async def pricing_error_handler(_: Request, exc: PricingError) -> JSONResponse:
 
 @app.get("/health")
 def health() -> dict[str, str]:
-    return {"status": "ok", "service": "neuroprice-api", "cache_backend": get_cache().backend}
+    return {"status": "ok", "service": "neuroprice-api", "cache_backend": get_cache().backend, "quota_backend": get_quota_store().backend}
 
 
 @app.get("/debug/cors")
@@ -71,18 +74,30 @@ def debug_cors(request: Request) -> dict[str, object]:
 
 
 @app.post("/api/v1/price", response_model=PricingResponse)
-def price_instrument(request: PricingRequest) -> PricingResponse:
+def price_instrument(request: PricingRequest, http_request: Request) -> PricingResponse:
     try:
+        user_email = http_request.headers.get("X-NeuroPrice-User-Email")
+        user_plan = http_request.headers.get("X-NeuroPrice-User-Plan")
+        quota_store = get_quota_store()
+        quota_status = quota_store.check(user_email, user_plan)
+        if not quota_status.allowed:
+            raise HTTPException(status_code=429, detail=f"Quota mensuel épuisé pour le plan {quota_status.plan} ({quota_status.used}/{quota_status.quota}).")
         cache = get_cache()
         key = cache.make_key(request.model_dump())
         cached = cache.get(key)
         if cached is not None:
+            quota_status = quota_store.consume(user_email, user_plan)
             cached["warnings"] = [*cached.get("warnings", []), f"cache hit: {cache.backend}"]
+            cached["warnings"] = [*cached["warnings"], f"server quota: {quota_status.remaining}/{quota_status.quota} remaining ({quota_status.backend})"]
             return PricingResponse(**cached)
         response = price(request)
+        quota_status = quota_store.consume(user_email, user_plan)
+        response.warnings = [*response.warnings, f"server quota: {quota_status.remaining}/{quota_status.quota} remaining ({quota_status.backend})"]
         cache.set(key, response.model_dump())
         return response
     except PricingError:
+        raise
+    except HTTPException:
         raise
     except Exception as exc:
         logger.exception("Unhandled pricing error")
@@ -92,6 +107,6 @@ def price_instrument(request: PricingRequest) -> PricingResponse:
 @app.post("/api/v1/price/batch", response_model=BatchPricingResponse)
 def price_batch(request: BatchPricingRequest) -> BatchPricingResponse:
     start = time.perf_counter()
-    results = [price_instrument(item) for item in request.requests]
+    results = [price(item) for item in request.requests]
     elapsed_ms = (time.perf_counter() - start) * 1000.0
     return BatchPricingResponse(results=results, count=len(results), total_inference_time_ms=round(elapsed_ms, 4))

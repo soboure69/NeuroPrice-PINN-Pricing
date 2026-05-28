@@ -73,7 +73,11 @@ export function PricingDashboard() {
       }
       const response = await fetch(endpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "X-NeuroPrice-User-Email": user.email,
+          "X-NeuroPrice-User-Plan": user.plan,
+        },
         body: JSON.stringify(payload),
       });
       const data = await response.json().catch(() => null);
