@@ -246,7 +246,7 @@ Sentry pour monitoring erreurs
 [x] MVP authentification locale beta
 [x] MVP quotas par tier freemium côté navigateur
 [ ] Système d'authentification NextAuth.js production
-[ ] Gestion des quotas par tier freemium côté serveur
+[x] Gestion des quotas par tier freemium côté serveur
 ```
 
 ## Checklist Phase 5 — Semaine 33-34
@@ -254,7 +254,7 @@ Sentry pour monitoring erreurs
 ```text
 [x] Déploiement API sur Render / Railway
 [x] Déploiement Frontend sur Vercel
-[ ] Base de données PostgreSQL Neon
+[x] Base de données PostgreSQL Neon
 [x] Redis Upstash
 [ ] Monitoring Sentry
 [ ] Analytics Plausible ou PostHog

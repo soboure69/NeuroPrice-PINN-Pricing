@@ -1479,12 +1479,12 @@ Validation : Monte Carlo haute précision (10M simulations)
 - [x] MVP authentification locale beta (localStorage)
 - [x] MVP quotas par tier freemium côté navigateur
 - [ ] Système d'authentification production (NextAuth.js)
-- [ ] Gestion des quotas par tier côté serveur
+- [x] Gestion des quotas par tier côté serveur
 
 #### Semaine 33-34 : Déploiement Cloud
 - [x] Déploiement API sur Render / Railway (gratuit pour MVP)
 - [x] Déploiement Frontend sur Vercel (gratuit)
-- [ ] Base de données PostgreSQL (Neon.tech, gratuit)
+- [x] Base de données PostgreSQL (Neon.tech, gratuit)
 - [x] Redis sur Upstash (gratuit pour démarrer)
 - [ ] Monitoring Sentry (erreurs)
 - [ ] Analytics (Plausible ou Posthog)
