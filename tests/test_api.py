@@ -84,6 +84,50 @@ def test_price_batch() -> None:
     assert all(item["price"] >= 0.0 for item in body["results"])
 
 
+def test_price_basket_call() -> None:
+    response = client.post(
+        "/api/v1/price",
+        json={
+            "instrument": "basket_call",
+            "S0": 100.0,
+            "K": 100.0,
+            "sigma": 0.2,
+            "r": 0.05,
+            "T": 1.0,
+            "spots": [100.0, 105.0, 95.0],
+            "sigmas": [0.2, 0.25, 0.18],
+            "weights": [0.4, 0.3, 0.3],
+            "correlation": 0.25,
+            "n_paths": 4000,
+            "seed": 42,
+        },
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["instrument"] == "basket_call"
+    assert body["price"] > 0.0
+    assert body["method"] == "reference"
+    assert body["model_version"] == "basket_monte_carlo_v1"
+
+
+def test_basket_call_validation_error_for_mismatched_dimensions() -> None:
+    response = client.post(
+        "/api/v1/price",
+        json={
+            "instrument": "basket_call",
+            "S0": 100.0,
+            "K": 100.0,
+            "sigma": 0.2,
+            "r": 0.05,
+            "T": 1.0,
+            "spots": [100.0, 105.0],
+            "sigmas": [0.2],
+            "weights": [0.5, 0.5],
+        },
+    )
+    assert response.status_code == 422
+
+
 def test_validation_error_for_missing_strike() -> None:
     response = client.post(
         "/api/v1/price",

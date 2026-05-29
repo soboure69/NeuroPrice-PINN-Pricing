@@ -1506,6 +1506,11 @@ Validation : Monte Carlo haute précision (10M simulations)
 # Démonstration : FDM échoue à N=4+, PINN scale
 ```
 
+- [x] Référence Monte Carlo `basket_call` exposée via l'API
+- [ ] Benchmark dimensionnel N = 2, 3, 5, 10
+- [ ] Dataset Monte Carlo pour surrogate/PINN panier
+- [ ] Prototype PINN panier haute dimension
+
 #### Modèle de Heston — Semaines 39-42
 ```
 Le modèle de Heston introduit une volatilité stochastique :

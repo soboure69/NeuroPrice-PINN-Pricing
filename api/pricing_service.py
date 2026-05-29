@@ -9,6 +9,7 @@ import numpy as np
 from api.schemas import PricingRequest, PricingResponse
 from neuroprice.validation.asian_ref import asian_arithmetic_call_mc_np
 from neuroprice.validation.barrier_ref import down_and_out_call_price_np
+from neuroprice.validation.basket_ref import basket_call_mc_np
 from neuroprice.validation.black_scholes_ref import black_scholes_call_delta_np, black_scholes_call_gamma_np, black_scholes_call_price_np
 from neuroprice.validation.lookback_ref import lookback_floating_call_mc_np
 
@@ -96,6 +97,8 @@ def price(request: PricingRequest) -> PricingResponse:
         price_value, method, version, warnings = _price_asian_arithmetic_call(request)
     elif request.instrument == "lookback_floating_call":
         price_value, method, version, warnings = _price_lookback_floating_call(request)
+    elif request.instrument == "basket_call":
+        price_value, method, version = _price_basket_call(request)
     else:
         raise PricingError(f"Unsupported instrument: {request.instrument}")
 
@@ -140,6 +143,21 @@ def _price_down_out_barrier_call(request: PricingRequest) -> tuple[float, str, s
         sigma=request.sigma,
     )
     return float(np.asarray(value).reshape(-1)[0]), "reference", "down_out_barrier_semi_analytic"
+
+
+def _price_basket_call(request: PricingRequest) -> tuple[float, str, str]:
+    value = basket_call_mc_np(
+        spots=np.asarray(request.spots, dtype=np.float64),
+        weights=np.asarray(request.weights, dtype=np.float64),
+        sigmas=np.asarray(request.sigmas, dtype=np.float64),
+        K=float(request.K),
+        r=request.r,
+        tau=request.T,
+        correlation=float(request.correlation or 0.0),
+        n_paths=int(request.n_paths or 20000),
+        seed=int(request.seed or 123),
+    )
+    return value, "reference", "basket_monte_carlo_v1"
 
 
 def _price_asian_arithmetic_call(request: PricingRequest) -> tuple[float, str, str, list[str]]:
