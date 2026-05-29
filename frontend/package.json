@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@sentry/nextjs": "^8.47.0",
+    "@sentry/nextjs": "^10.55.0",
     "@types/plotly.js": "^2.35.2",
     "autoprefixer": "^10.4.20",
     "lucide-react": "^0.468.0",
