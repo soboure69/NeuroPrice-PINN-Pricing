@@ -244,13 +244,38 @@ Callback Google OAuth autorisé :
 https://<frontend-vercel-url>/api/auth/callback/google
 ```
 
+## Monitoring Sentry
+
+Le frontend Next.js et l'API FastAPI initialisent Sentry seulement si les DSN sont présents dans l'environnement.
+
+Variables Vercel recommandées :
+
+```text
+NEXT_PUBLIC_SENTRY_DSN=<frontend-sentry-dsn>
+NEXT_PUBLIC_SENTRY_ENVIRONMENT=production
+NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE=0.1
+SENTRY_DSN=<frontend-server-sentry-dsn>
+SENTRY_ENVIRONMENT=production
+SENTRY_TRACES_SAMPLE_RATE=0.1
+SENTRY_ORG=<sentry-org>
+SENTRY_PROJECT=<sentry-project>
+SENTRY_AUTH_TOKEN=<sentry-auth-token-optionnel-pour-sourcemaps>
+```
+
+Variables Render recommandées pour l'API :
+
+```text
+SENTRY_DSN=<backend-sentry-dsn>
+SENTRY_ENVIRONMENT=production
+SENTRY_TRACES_SAMPLE_RATE=0.1
+```
+
 À intégrer ensuite pour production :
 
 ```text
 PostgreSQL Neon pour users, plans et quotas
 Middleware quota par tier freemium
 Analytics PostHog ou Plausible
-Sentry pour monitoring erreurs
 ```
 
 ## Checklist Phase 5 — Semaine 29-32

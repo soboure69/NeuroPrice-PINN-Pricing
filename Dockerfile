@@ -13,7 +13,7 @@ RUN apt-get update \
 COPY requirements-api.txt ./
 RUN python -m pip install --upgrade pip \
     && python -m pip install -r requirements-api.txt \
-    && python -m pip install "psycopg[binary]"
+    && python -m pip install "psycopg[binary]" "sentry-sdk[fastapi]"
 
 COPY api ./api
 COPY neuroprice ./neuroprice

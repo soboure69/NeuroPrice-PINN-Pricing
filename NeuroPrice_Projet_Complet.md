@@ -1478,7 +1478,7 @@ Validation : Monte Carlo haute précision (10M simulations)
 - [x] Graphiques Plotly : surface de prix, Greeks vs S, convergence
 - [x] MVP authentification locale beta (localStorage)
 - [x] MVP quotas par tier freemium côté navigateur
-- [ ] Système d'authentification production (NextAuth.js)
+- [x] Système d'authentification production (NextAuth.js)
 - [x] Gestion des quotas par tier côté serveur
 
 #### Semaine 33-34 : Déploiement Cloud
@@ -1486,7 +1486,7 @@ Validation : Monte Carlo haute précision (10M simulations)
 - [x] Déploiement Frontend sur Vercel (gratuit)
 - [x] Base de données PostgreSQL (Neon.tech, gratuit)
 - [x] Redis sur Upstash (gratuit pour démarrer)
-- [ ] Monitoring Sentry (erreurs)
+- [x] Monitoring Sentry (erreurs)
 - [ ] Analytics (Plausible ou Posthog)
 
 **Livrable Phase 5 :** SaaS MVP déployé, URL publique, premier utilisateur beta

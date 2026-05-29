@@ -6,9 +6,11 @@ import time
 from contextlib import asynccontextmanager
 from collections.abc import AsyncIterator
 
+import sentry_sdk
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from sentry_sdk.integrations.fastapi import FastApiIntegration
 
 from api.cache import get_cache
 from api.pricing_service import PricingError, preload_models, price
@@ -20,6 +22,16 @@ logger = logging.getLogger("neuroprice.api")
 
 DEFAULT_CORS_ORIGINS = "http://localhost:3000,http://127.0.0.1:3000"
 cors_origins = [origin.strip() for origin in os.getenv("CORS_ORIGINS", DEFAULT_CORS_ORIGINS).split(",") if origin.strip()]
+sentry_dsn = os.getenv("SENTRY_DSN")
+
+if sentry_dsn:
+    sentry_sdk.init(
+        dsn=sentry_dsn,
+        environment=os.getenv("SENTRY_ENVIRONMENT", os.getenv("RENDER_SERVICE_NAME", "production")),
+        release=os.getenv("SENTRY_RELEASE"),
+        traces_sample_rate=float(os.getenv("SENTRY_TRACES_SAMPLE_RATE", "0.1")),
+        integrations=[FastApiIntegration()],
+    )
 
 
 @asynccontextmanager
