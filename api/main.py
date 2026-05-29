@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import logging
 import os
 import time
@@ -10,6 +11,7 @@ import sentry_sdk
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from posthog import Posthog
 from sentry_sdk.integrations.fastapi import FastApiIntegration
 
 from api.cache import get_cache
@@ -23,6 +25,12 @@ logger = logging.getLogger("neuroprice.api")
 DEFAULT_CORS_ORIGINS = "http://localhost:3000,http://127.0.0.1:3000"
 cors_origins = [origin.strip() for origin in os.getenv("CORS_ORIGINS", DEFAULT_CORS_ORIGINS).split(",") if origin.strip()]
 sentry_dsn = os.getenv("SENTRY_DSN")
+
+_posthog_key = os.getenv("POSTHOG_PROJECT_API_KEY", "")
+posthog = Posthog(
+    project_api_key=_posthog_key,
+    host=os.getenv("POSTHOG_HOST", "https://eu.i.posthog.com"),
+) if _posthog_key else None
 
 if sentry_dsn:
     sentry_sdk.init(
@@ -42,6 +50,8 @@ async def lifespan(_: FastAPI) -> AsyncIterator[None]:
     quota_store.init_schema()
     logger.info("startup loaded_models=%s cache_backend=%s quota_backend=%s", loaded_models, cache.backend, quota_store.backend)
     yield
+    if posthog:
+        await asyncio.to_thread(posthog.flush)
 
 
 app = FastAPI(
@@ -67,6 +77,19 @@ async def log_requests(request: Request, call_next):
     elapsed_ms = (time.perf_counter() - start) * 1000.0
     logger.info("method=%s path=%s status=%s elapsed_ms=%.3f", request.method, request.url.path, response.status_code, elapsed_ms)
     response.headers["X-NeuroPrice-CORS-Origins"] = ",".join(cors_origins)
+    if posthog:
+        distinct_id = request.headers.get("X-NeuroPrice-User-Email") or "anonymous"
+        await asyncio.to_thread(
+            posthog.capture,
+            distinct_id,
+            "api_request",
+            {
+                "method": request.method,
+                "path": str(request.url.path),
+                "status_code": response.status_code,
+                "elapsed_ms": round(elapsed_ms, 3),
+            },
+        )
     return response
 
 
@@ -93,6 +116,8 @@ def price_instrument(request: PricingRequest, http_request: Request) -> PricingR
         quota_store = get_quota_store()
         quota_status = quota_store.check(user_email, user_plan)
         if not quota_status.allowed:
+            if posthog and user_email:
+                posthog.capture(user_email, "quota_exceeded", {"plan": quota_status.plan, "quota": quota_status.quota, "used": quota_status.used})
             raise HTTPException(status_code=429, detail=f"Quota mensuel épuisé pour le plan {quota_status.plan} ({quota_status.used}/{quota_status.quota}).")
         cache = get_cache()
         key = cache.make_key(request.model_dump())

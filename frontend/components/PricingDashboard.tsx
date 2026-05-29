@@ -2,6 +2,7 @@
 
 import { Activity, Calculator, Gauge, LineChart } from "lucide-react";
 import { useMemo, useState } from "react";
+import { trackEvent } from "@/components/analytics";
 import { useAuth } from "@/components/AuthProvider";
 import { PriceSurfacePlot } from "@/components/PriceSurfacePlot";
 
@@ -57,6 +58,7 @@ export function PricingDashboard() {
       return;
     }
     if (remaining <= 0) {
+      trackEvent("quota_exceeded", { plan: user.plan, instrument });
       setError("Quota mensuel épuisé pour ce plan. Sélectionne un plan supérieur ou réinitialise le mois prochain.");
       return;
     }
@@ -71,6 +73,7 @@ export function PricingDashboard() {
       if (instrument === "down_out_barrier_call") {
         payload.barrier = barrier;
       }
+      trackEvent("pricing_submitted", { instrument, plan: user.plan, S0, K, sigma, r, T });
       const response = await fetch(endpoint, {
         method: "POST",
         headers: {
@@ -86,11 +89,16 @@ export function PricingDashboard() {
       }
       setResult(data);
       consumeQuota();
+      trackEvent("pricing_success", { instrument, plan: user.plan, method: data.method, model_version: data.model_version, inference_time_ms: data.inference_time_ms });
     } catch (exc) {
       if (exc instanceof TypeError) {
-        setError(`API inaccessible à ${apiUrl}. Erreur navigateur: ${exc.message}. Vérifie CORS_ORIGINS côté Render et la console réseau du navigateur.`);
+        const message = `API inaccessible à ${apiUrl}. Erreur navigateur: ${exc.message}. Vérifie CORS_ORIGINS côté Render et la console réseau du navigateur.`;
+        trackEvent("pricing_error", { instrument, plan: user.plan, error_type: "network", message: exc.message });
+        setError(message);
       } else {
-        setError(exc instanceof Error ? exc.message : "Unknown pricing error");
+        const message = exc instanceof Error ? exc.message : "Unknown pricing error";
+        trackEvent("pricing_error", { instrument, plan: user.plan, error_type: "api", message });
+        setError(message);
       }
     } finally {
       setLoading(false);

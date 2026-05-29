@@ -2,6 +2,7 @@
 
 import { SessionProvider, signIn as nextAuthSignIn, signOut as nextAuthSignOut, useSession } from "next-auth/react";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { identifyUser, resetAnalytics, trackEvent } from "@/components/analytics";
 
 type Plan = "free" | "quant" | "enterprise";
 
@@ -63,7 +64,12 @@ function AuthStateProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const email = session?.user?.email;
-    setUser(email ? { email, plan } : null);
+    if (email) {
+      setUser({ email, plan });
+      identifyUser(email, { plan });
+    } else {
+      setUser(null);
+    }
   }, [plan, session?.user?.email]);
 
   const quota = quotas[plan];
@@ -78,9 +84,15 @@ function AuthStateProvider({ children }: { children: React.ReactNode }) {
     setPlan: (nextPlan: Plan) => {
       setPlanState(nextPlan);
       window.localStorage.setItem("neuroprice:plan", nextPlan);
+      trackEvent("plan_selected", { plan: nextPlan });
     },
-    signIn: () => nextAuthSignIn("google"),
+    signIn: () => {
+      trackEvent("user_sign_in_started", { provider: "google", plan });
+      nextAuthSignIn("google");
+    },
     signOut: () => {
+      trackEvent("user_signed_out", { plan });
+      resetAnalytics();
       setUser(null);
       nextAuthSignOut();
     },

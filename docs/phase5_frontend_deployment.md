@@ -270,12 +270,48 @@ SENTRY_ENVIRONMENT=production
 SENTRY_TRACES_SAMPLE_RATE=0.1
 ```
 
+## Analytics PostHog
+
+PostHog est utilisé pour suivre les événements produit du SaaS MVP : connexion Google, sélection de plan, soumission de pricing, succès, erreurs et quotas dépassés.
+
+Variables Vercel recommandées :
+
+```text
+NEXT_PUBLIC_POSTHOG_KEY=<posthog-project-api-key>
+NEXT_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com
+```
+
+Variables Render recommandées pour l'API :
+
+```text
+POSTHOG_PROJECT_API_KEY=<posthog-project-api-key>
+POSTHOG_HOST=https://eu.i.posthog.com
+```
+
+Événements frontend suivis :
+
+```text
+user_sign_in_started
+user_signed_out
+plan_selected
+pricing_submitted
+pricing_success
+pricing_error
+quota_exceeded
+```
+
+Événements backend suivis :
+
+```text
+api_request
+quota_exceeded
+```
+
 À intégrer ensuite pour production :
 
 ```text
 PostgreSQL Neon pour users, plans et quotas
 Middleware quota par tier freemium
-Analytics PostHog ou Plausible
 ```
 
 ## Checklist Phase 5 — Semaine 29-32

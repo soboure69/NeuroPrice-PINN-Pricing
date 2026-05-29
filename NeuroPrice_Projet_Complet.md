@@ -1487,7 +1487,7 @@ Validation : Monte Carlo haute précision (10M simulations)
 - [x] Base de données PostgreSQL (Neon.tech, gratuit)
 - [x] Redis sur Upstash (gratuit pour démarrer)
 - [x] Monitoring Sentry (erreurs)
-- [ ] Analytics (Plausible ou Posthog)
+- [x] Analytics PostHog
 
 **Livrable Phase 5 :** SaaS MVP déployé, URL publique, premier utilisateur beta
 

@@ -17,6 +17,7 @@
     "next-auth": "^5.0.0-beta.25",
     "plotly.js": "^2.35.3",
     "plotly.js-dist-min": "^2.35.3",
+    "posthog-js": "^1.203.1",
     "postcss": "^8.4.49",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
