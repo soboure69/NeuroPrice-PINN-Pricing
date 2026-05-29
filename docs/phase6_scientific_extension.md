@@ -66,6 +66,34 @@ Exemple de payload :
 }
 ```
 
+### Benchmark dimensionnel
+
+Le benchmark Phase 6 mesure le coût Monte Carlo lorsque le nombre d'actifs du panier augmente.
+
+Commande recommandée :
+
+```bash
+python scripts/benchmark_basket_dimension.py --dimensions 2,3,5,10 --n-paths 50000 --repeats 3
+```
+
+Sortie par défaut :
+
+```text
+artifacts/phase6_basket_dimension/benchmark.json
+```
+
+Métriques enregistrées par dimension :
+
+```text
+price_mean
+price_std
+seconds_mean
+seconds_std
+paths_per_second
+time_ratio_vs_first_dimension
+throughput_ratio_vs_first_dimension
+```
+
 ## Prochaines étapes
 
 - Comparer les prix et temps de calcul pour `N = 2, 3, 5, 10` actifs.
