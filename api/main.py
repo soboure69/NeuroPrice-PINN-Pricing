@@ -81,9 +81,9 @@ async def log_requests(request: Request, call_next):
         distinct_id = request.headers.get("X-NeuroPrice-User-Email") or "anonymous"
         await asyncio.to_thread(
             posthog.capture,
-            distinct_id,
-            "api_request",
-            {
+            distinct_id=distinct_id,
+            event="api_request",
+            properties={
                 "method": request.method,
                 "path": str(request.url.path),
                 "status_code": response.status_code,
@@ -117,7 +117,7 @@ def price_instrument(request: PricingRequest, http_request: Request) -> PricingR
         quota_status = quota_store.check(user_email, user_plan)
         if not quota_status.allowed:
             if posthog and user_email:
-                posthog.capture(user_email, "quota_exceeded", {"plan": quota_status.plan, "quota": quota_status.quota, "used": quota_status.used})
+                posthog.capture(distinct_id=user_email, event="quota_exceeded", properties={"plan": quota_status.plan, "quota": quota_status.quota, "used": quota_status.used})
             raise HTTPException(status_code=429, detail=f"Quota mensuel épuisé pour le plan {quota_status.plan} ({quota_status.used}/{quota_status.quota}).")
         cache = get_cache()
         key = cache.make_key(request.model_dump())
