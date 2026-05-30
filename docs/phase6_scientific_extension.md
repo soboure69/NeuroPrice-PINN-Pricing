@@ -94,10 +94,47 @@ time_ratio_vs_first_dimension
 throughput_ratio_vs_first_dimension
 ```
 
+### Dataset Monte Carlo pour surrogate/PINN
+
+Le dataset offline sert de base pour entraîner un surrogate panier multi-actifs.
+
+Commande recommandée :
+
+```bash
+python scripts/generate_basket_dataset.py --n-samples 5000 --n-assets 5 --n-paths 20000
+```
+
+Sorties par défaut :
+
+```text
+artifacts/phase6_basket_surrogate_dataset/dataset.npz
+artifacts/phase6_basket_surrogate_dataset/metadata.json
+```
+
+Le fichier `dataset.npz` contient :
+
+```text
+x: features normalisées pour le surrogate
+y: prix normalisés par spot_max
+spots
+sigmas
+weights
+strikes
+rates
+maturities
+correlations
+target_prices
+```
+
+Ordre des features dans `x` :
+
+```text
+spots_norm, sigmas_norm, weights, strike_norm, rate_norm, maturity_norm, correlation_norm
+```
+
 ## Prochaines étapes
 
 - Comparer les prix et temps de calcul pour `N = 2, 3, 5, 10` actifs.
 - Ajouter un benchmark montrant la difficulté des schémas FDM au-delà de faibles dimensions.
-- Générer un dataset Monte Carlo pour entraîner un surrogate/PINN basket.
 - Ajouter une visualisation frontend pour les paramètres multi-actifs.
 - Démarrer ensuite le modèle de Heston.

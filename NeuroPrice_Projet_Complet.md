@@ -1508,7 +1508,7 @@ Validation : Monte Carlo haute précision (10M simulations)
 
 - [x] Référence Monte Carlo `basket_call` exposée via l'API
 - [x] Benchmark dimensionnel N = 2, 3, 5, 10
-- [ ] Dataset Monte Carlo pour surrogate/PINN panier
+- [x] Dataset Monte Carlo pour surrogate/PINN panier
 - [ ] Prototype PINN panier haute dimension
 
 #### Modèle de Heston — Semaines 39-42
