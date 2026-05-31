@@ -274,3 +274,56 @@ spot_norm, strike_norm, rate_norm, maturity_norm, v0_norm, kappa_norm,
 theta_norm, xi_norm, rho_norm, moneyness_norm, vol_ratio_norm,
 feller_ratio_norm, intrinsic_norm
 ```
+
+### Prototype surrogate/PINN Heston
+
+Le prototype Heston utilise un MLP PyTorch sur les 13 features normalisées du dataset Monte Carlo.
+
+Commande smoke test :
+
+```bash
+python scripts/train_heston_surrogate.py --dataset artifacts/phase6_heston_surrogate_dataset/dataset.npz --metadata artifacts/phase6_heston_surrogate_dataset/metadata.json --out-dir artifacts/phase6_heston_surrogate_smoke --epochs 5 --hidden-dim 32 --hidden-layers 2 --batch-size 32
+```
+
+Commande recommandée :
+
+```bash
+python scripts/train_heston_surrogate.py --dataset artifacts/phase6_heston_surrogate_dataset/dataset.npz --metadata artifacts/phase6_heston_surrogate_dataset/metadata.json --out-dir artifacts/phase6_heston_surrogate --epochs 800 --hidden-dim 256 --hidden-layers 5 --batch-size 512
+```
+
+Sorties :
+
+```text
+artifacts/phase6_heston_surrogate/heston_surrogate.pt
+artifacts/phase6_heston_surrogate/history.json
+```
+
+### Benchmark Heston surrogate vs Monte Carlo
+
+Le benchmark compare le surrogate Heston entraîné à la référence Monte Carlo full-truncation.
+
+Commande recommandée :
+
+```bash
+python scripts/benchmark_heston_surrogate.py --checkpoint artifacts/phase6_heston_surrogate/heston_surrogate.pt --dataset artifacts/phase6_heston_surrogate_dataset/dataset.npz --n-points 500 --mc-paths 20000 --mc-steps 128
+```
+
+Sortie par défaut :
+
+```text
+artifacts/phase6_heston_surrogate/benchmark.json
+```
+
+Métriques principales :
+
+```text
+mae
+rmse
+median_relative_error
+p95_relative_error
+pct_under_5pct
+pct_under_10pct
+surrogate_seconds
+monte_carlo_seconds
+speedup_vs_monte_carlo
+```

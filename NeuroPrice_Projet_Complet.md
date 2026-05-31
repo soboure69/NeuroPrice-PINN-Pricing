@@ -1523,7 +1523,7 @@ EDP de Heston : 2D en (S, v), plus complexe que BS
 
 - [x] Référence Monte Carlo `heston_call` exposée via l'API
 - [x] Dataset Heston pour surrogate/PINN
-- [ ] Prototype PINN/surrogate Heston
+- [x] Prototype PINN/surrogate Heston
 
 **Livrable Phase 6 :** Benchmark haute dimension + modèle Heston fonctionnel
 

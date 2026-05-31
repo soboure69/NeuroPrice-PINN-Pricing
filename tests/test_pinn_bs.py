@@ -8,6 +8,7 @@ from neuroprice.pinn.barrier import BarrierOptionDomain, DownAndOutBarrierPINN, 
 from neuroprice.pinn.asian import AsianArithmeticPINN, AsianOptionDomain, asian_pinn_loss, sample_asian_batch
 from neuroprice.pinn.asian_surrogate import AsianArithmeticSurrogate
 from neuroprice.pinn.basket_surrogate import BasketCallSurrogate, BasketSurrogateDomain
+from neuroprice.pinn.heston_surrogate import HestonCallSurrogate, HestonSurrogateDomain
 from neuroprice.pinn.lookback_surrogate import LookbackFloatingCallSurrogate
 from neuroprice.pinn.log_bs import (
     LogBlackScholesDomain,
@@ -97,6 +98,14 @@ def test_lookback_surrogate_forward_shape() -> None:
 def test_basket_surrogate_forward_shape() -> None:
     domain = BasketSurrogateDomain(n_assets=5)
     model = BasketCallSurrogate(input_dim=domain.input_dim, hidden_dim=8, hidden_layers=2)
+    x = torch.rand(5, domain.input_dim)
+    out = model(x)
+    assert out.shape == (5, 1)
+
+
+def test_heston_surrogate_forward_shape() -> None:
+    domain = HestonSurrogateDomain()
+    model = HestonCallSurrogate(input_dim=domain.input_dim, hidden_dim=8, hidden_layers=2)
     x = torch.rand(5, domain.input_dim)
     out = model(x)
     assert out.shape == (5, 1)

@@ -1,0 +1,39 @@
+{
+  "instrument": "heston_call",
+  "benchmark_version": "heston_surrogate_vs_mc_v1",
+  "checkpoint": "artifacts\\phase6_heston_surrogate\\heston_surrogate.pt",
+  "dataset": "artifacts\\phase6_heston_surrogate_dataset\\dataset.npz",
+  "device": "cpu",
+  "n_points": 50,
+  "mc_paths": 5000,
+  "mc_steps": 64,
+  "mc_chunk_size": 1000,
+  "relative_floor": 1.0,
+  "surrogate_seconds": 0.0023584000300616026,
+  "monte_carlo_seconds": 0.9696478999685496,
+  "surrogate_points_per_second": 21200.813841023388,
+  "monte_carlo_points_per_second": 51.56510935734687,
+  "speedup_vs_monte_carlo": 411.14649237144977,
+  "price_reference_mean": 29.636220932006836,
+  "price_surrogate_mean": 29.367189407348633,
+  "metrics": {
+    "mae": 1.1407159566879272,
+    "rmse": 1.6345185041427612,
+    "median_absolute_error": 0.8152990341186523,
+    "p95_absolute_error": 3.4961934089660645,
+    "mean_relative_error": 0.09330054372549057,
+    "median_relative_error": 0.05118006467819214,
+    "p95_relative_error": 0.35737937688827515,
+    "pct_under_5pct": 48.0,
+    "pct_under_10pct": 72.0
+  },
+  "training": {
+    "mode": "offline_monte_carlo_dataset",
+    "dataset_path": "artifacts\\phase6_heston_surrogate_dataset\\dataset.npz",
+    "epochs": 800,
+    "lr": 0.0005,
+    "batch_size": 512,
+    "validation_split": 0.2,
+    "seed": 123
+  }
+}
