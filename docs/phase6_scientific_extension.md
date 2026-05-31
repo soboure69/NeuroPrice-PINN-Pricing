@@ -232,3 +232,45 @@ curl -X POST http://localhost:8000/api/v1/price \
 ```
 
 La première référence utilise un schéma Monte Carlo full-truncation.
+
+### Dataset Heston pour surrogate/PINN
+
+Le dataset offline Heston sert de base pour entraîner un surrogate ou un PINN paramétrique sur les paramètres du modèle à volatilité stochastique.
+
+Commande recommandée :
+
+```bash
+python scripts/generate_heston_dataset.py --n-samples 5000 --n-paths 20000 --n-steps 128
+```
+
+Sorties par défaut :
+
+```text
+artifacts/phase6_heston_surrogate_dataset/dataset.npz
+artifacts/phase6_heston_surrogate_dataset/metadata.json
+```
+
+Le fichier `dataset.npz` contient :
+
+```text
+x: features normalisées
+y: prix normalisés par spot_max
+spots
+strikes
+rates
+maturities
+v0
+kappa
+theta
+xi
+rho
+target_prices
+```
+
+Ordre des features dans `x` :
+
+```text
+spot_norm, strike_norm, rate_norm, maturity_norm, v0_norm, kappa_norm,
+theta_norm, xi_norm, rho_norm, moneyness_norm, vol_ratio_norm,
+feller_ratio_norm, intrinsic_norm
+```
