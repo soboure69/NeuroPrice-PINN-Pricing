@@ -58,6 +58,7 @@ def build_features(
     *,
     spot_max: float,
     sigma_max: float,
+    strike_min: float,
     strike_max: float,
     rate_min: float,
     rate_max: float,
@@ -71,6 +72,28 @@ def build_features(
     rates_norm = (params["rates"] - rate_min) / (rate_max - rate_min)
     maturities_norm = params["maturities"] / maturity_max
     correlations_norm = (params["correlations"] - correlation_min) / (correlation_max - correlation_min)
+    basket_spot = np.sum(params["weights"] * params["spots"], axis=1, keepdims=True)
+    basket_spot_norm = basket_spot / spot_max
+    moneyness = basket_spot / params["strikes"]
+    moneyness_norm = np.clip(moneyness / (spot_max / strike_min), 0.0, 1.0)
+    effective_sigma = np.sqrt(
+        np.sum((params["weights"] * params["sigmas"]) ** 2, axis=1, keepdims=True)
+        + 2.0
+        * params["correlations"]
+        * np.sum(
+            [
+                params["weights"][:, i : i + 1]
+                * params["weights"][:, j : j + 1]
+                * params["sigmas"][:, i : i + 1]
+                * params["sigmas"][:, j : j + 1]
+                for i in range(params["spots"].shape[1])
+                for j in range(i + 1, params["spots"].shape[1])
+            ],
+            axis=0,
+        )
+    )
+    effective_sigma_norm = np.clip(effective_sigma / sigma_max, 0.0, 1.0)
+    intrinsic_norm = np.maximum(basket_spot - params["strikes"], 0.0) / spot_max
     return np.concatenate(
         [
             spots_norm,
@@ -80,6 +103,10 @@ def build_features(
             rates_norm,
             maturities_norm,
             correlations_norm,
+            basket_spot_norm,
+            moneyness_norm,
+            effective_sigma_norm,
+            intrinsic_norm,
         ],
         axis=1,
     ).astype(np.float32)
@@ -142,6 +169,7 @@ def generate_dataset(
         params,
         spot_max=spot_max,
         sigma_max=sigma_max,
+        strike_min=strike_min,
         strike_max=strike_max,
         rate_min=rate_min,
         rate_max=rate_max,
@@ -152,7 +180,7 @@ def generate_dataset(
     y = (prices / spot_max).astype(np.float32)
     metadata: dict[str, float | int | str] = {
         "instrument": "basket_call",
-        "dataset_version": "basket_mc_dataset_v1",
+        "dataset_version": "basket_mc_dataset_v2",
         "n_samples": n_samples,
         "n_assets": n_assets,
         "n_paths": n_paths,
@@ -170,7 +198,7 @@ def generate_dataset(
         "maturity_max": maturity_max,
         "correlation_min": correlation_min,
         "correlation_max": correlation_max,
-        "feature_order": "spots_norm,sigmas_norm,weights,strike_norm,rate_norm,maturity_norm,correlation_norm",
+        "feature_order": "spots_norm,sigmas_norm,weights,strike_norm,rate_norm,maturity_norm,correlation_norm,basket_spot_norm,moneyness_norm,effective_sigma_norm,intrinsic_norm",
         "target_scale": "price_divided_by_spot_max",
         "elapsed_seconds": elapsed_seconds,
     }

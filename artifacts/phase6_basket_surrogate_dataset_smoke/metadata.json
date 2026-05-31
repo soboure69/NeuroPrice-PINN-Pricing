@@ -1,6 +1,6 @@
 {
   "instrument": "basket_call",
-  "dataset_version": "basket_mc_dataset_v1",
+  "dataset_version": "basket_mc_dataset_v2",
   "n_samples": 100,
   "n_assets": 5,
   "n_paths": 2000,
@@ -18,7 +18,7 @@
   "maturity_max": 3.0,
   "correlation_min": -0.25,
   "correlation_max": 0.75,
-  "feature_order": "spots_norm,sigmas_norm,weights,strike_norm,rate_norm,maturity_norm,correlation_norm",
+  "feature_order": "spots_norm,sigmas_norm,weights,strike_norm,rate_norm,maturity_norm,correlation_norm,basket_spot_norm,moneyness_norm,effective_sigma_norm,intrinsic_norm",
   "target_scale": "price_divided_by_spot_max",
-  "elapsed_seconds": 0.025806199992075562
+  "elapsed_seconds": 0.038460600073449314
 }

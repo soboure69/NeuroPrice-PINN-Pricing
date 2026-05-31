@@ -15,7 +15,7 @@ def test_generate_basket_dataset_shapes_and_metadata() -> None:
         chunk_size=500,
         seed=123,
     )
-    assert x.shape == (4, 13)
+    assert x.shape == (4, 17)
     assert y.shape == (4, 1)
     assert params["spots"].shape == (4, 3)
     assert params["sigmas"].shape == (4, 3)
@@ -47,4 +47,4 @@ def test_save_basket_dataset_files(tmp_path) -> None:
     loaded_metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
     assert loaded["x"].shape == x.shape
     assert loaded["y"].shape == y.shape
-    assert loaded_metadata["dataset_version"] == "basket_mc_dataset_v1"
+    assert loaded_metadata["dataset_version"] == "basket_mc_dataset_v2"

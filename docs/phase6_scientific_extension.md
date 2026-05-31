@@ -129,7 +129,70 @@ target_prices
 Ordre des features dans `x` :
 
 ```text
-spots_norm, sigmas_norm, weights, strike_norm, rate_norm, maturity_norm, correlation_norm
+spots_norm, sigmas_norm, weights, strike_norm, rate_norm, maturity_norm, correlation_norm,
+basket_spot_norm, moneyness_norm, effective_sigma_norm, intrinsic_norm
+```
+
+La version `basket_mc_dataset_v2` ajoute quatre features synthétiques pour améliorer la précision du surrogate :
+
+```text
+basket_spot_norm: panier spot initial normalisé
+moneyness_norm: ratio panier spot / strike normalisé
+effective_sigma_norm: volatilité panier approximative normalisée
+intrinsic_norm: payoff intrinsèque initial normalisé
+```
+
+### Prototype surrogate/PINN panier
+
+Le prototype haute dimension utilise un MLP PyTorch sur les features normalisées du dataset Monte Carlo.
+
+Commande smoke test :
+
+```bash
+python scripts/train_basket_surrogate.py --dataset artifacts/phase6_basket_surrogate_dataset_smoke/dataset.npz --metadata artifacts/phase6_basket_surrogate_dataset_smoke/metadata.json --out-dir artifacts/phase6_basket_surrogate_smoke --epochs 5 --hidden-dim 32 --hidden-layers 2 --batch-size 32
+```
+
+Commande recommandée :
+
+```bash
+python scripts/train_basket_surrogate.py --dataset artifacts/phase6_basket_surrogate_dataset/dataset.npz --metadata artifacts/phase6_basket_surrogate_dataset/metadata.json --out-dir artifacts/phase6_basket_surrogate --epochs 800 --hidden-dim 256 --hidden-layers 5 --batch-size 512
+```
+
+Sorties :
+
+```text
+artifacts/phase6_basket_surrogate/basket_surrogate.pt
+artifacts/phase6_basket_surrogate/history.json
+```
+
+### Benchmark surrogate vs Monte Carlo
+
+Le benchmark compare le surrogate entraîné à la référence Monte Carlo sur un sous-échantillon du dataset.
+
+Commande recommandée :
+
+```bash
+python scripts/benchmark_basket_surrogate.py --checkpoint artifacts/phase6_basket_surrogate/basket_surrogate.pt --dataset artifacts/phase6_basket_surrogate_dataset/dataset.npz --n-points 500 --mc-paths 20000
+```
+
+Sortie par défaut :
+
+```text
+artifacts/phase6_basket_surrogate/benchmark.json
+```
+
+Métriques principales :
+
+```text
+mae
+rmse
+median_relative_error
+p95_relative_error
+pct_under_5pct
+pct_under_10pct
+surrogate_seconds
+monte_carlo_seconds
+speedup_vs_monte_carlo
 ```
 
 ## Prochaines étapes
