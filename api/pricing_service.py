@@ -11,6 +11,7 @@ from neuroprice.validation.asian_ref import asian_arithmetic_call_mc_np
 from neuroprice.validation.barrier_ref import down_and_out_call_price_np
 from neuroprice.validation.basket_ref import basket_call_mc_np
 from neuroprice.validation.black_scholes_ref import black_scholes_call_delta_np, black_scholes_call_gamma_np, black_scholes_call_price_np
+from neuroprice.validation.heston_ref import heston_call_mc_np
 from neuroprice.validation.lookback_ref import lookback_floating_call_mc_np
 
 try:
@@ -99,6 +100,8 @@ def price(request: PricingRequest) -> PricingResponse:
         price_value, method, version, warnings = _price_lookback_floating_call(request)
     elif request.instrument == "basket_call":
         price_value, method, version = _price_basket_call(request)
+    elif request.instrument == "heston_call":
+        price_value, method, version = _price_heston_call(request)
     else:
         raise PricingError(f"Unsupported instrument: {request.instrument}")
 
@@ -158,6 +161,24 @@ def _price_basket_call(request: PricingRequest) -> tuple[float, str, str]:
         seed=int(request.seed or 123),
     )
     return value, "reference", "basket_monte_carlo_v1"
+
+
+def _price_heston_call(request: PricingRequest) -> tuple[float, str, str]:
+    value = heston_call_mc_np(
+        S0=request.S0,
+        K=float(request.K),
+        r=request.r,
+        T=request.T,
+        v0=float(request.v0),
+        kappa=float(request.kappa),
+        theta=float(request.theta),
+        xi=float(request.xi),
+        rho=float(request.rho),
+        n_paths=int(request.n_paths or 20000),
+        n_steps=int(request.n_steps or 128),
+        seed=int(request.seed or 123),
+    )
+    return value, "reference", "heston_monte_carlo_v1"
 
 
 def _price_asian_arithmetic_call(request: PricingRequest) -> tuple[float, str, str, list[str]]:

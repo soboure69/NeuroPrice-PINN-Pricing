@@ -34,6 +34,7 @@ from neuroprice.validation.black_scholes_ref import (
 )
 from neuroprice.validation.barrier_ref import down_and_out_call_price_np
 from neuroprice.validation.asian_ref import asian_arithmetic_call_mc_np
+from neuroprice.validation.heston_ref import heston_call_mc_np
 from neuroprice.validation.lookback_ref import lookback_floating_call_mc_np
 
 
@@ -228,6 +229,41 @@ def test_lookback_floating_reference_shape_and_terminal() -> None:
     prices = lookback_floating_call_mc_np(S, tau, r=0.05, sigma=0.2, n_paths=200, n_steps=4, seed=123, chunk_size=50)
     assert prices.shape == (3, 1)
     assert np.allclose(prices.reshape(-1), np.zeros_like(S))
+
+
+def test_heston_reference_is_positive_and_reproducible() -> None:
+    price_1 = heston_call_mc_np(
+        S0=100.0,
+        K=100.0,
+        r=0.05,
+        T=1.0,
+        v0=0.04,
+        kappa=2.0,
+        theta=0.04,
+        xi=0.30,
+        rho=-0.50,
+        n_paths=2000,
+        n_steps=32,
+        seed=123,
+        chunk_size=1000,
+    )
+    price_2 = heston_call_mc_np(
+        S0=100.0,
+        K=100.0,
+        r=0.05,
+        T=1.0,
+        v0=0.04,
+        kappa=2.0,
+        theta=0.04,
+        xi=0.30,
+        rho=-0.50,
+        n_paths=2000,
+        n_steps=32,
+        seed=123,
+        chunk_size=1000,
+    )
+    assert price_1 > 0.0
+    assert price_1 == price_2
 
 
 def test_log_black_scholes_reference_torch_is_finite() -> None:

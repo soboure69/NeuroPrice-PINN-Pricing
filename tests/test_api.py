@@ -128,6 +128,49 @@ def test_basket_call_validation_error_for_mismatched_dimensions() -> None:
     assert response.status_code == 422
 
 
+def test_price_heston_call() -> None:
+    response = client.post(
+        "/api/v1/price",
+        json={
+            "instrument": "heston_call",
+            "S0": 100.0,
+            "K": 100.0,
+            "sigma": 0.2,
+            "r": 0.05,
+            "T": 1.0,
+            "v0": 0.04,
+            "kappa": 2.0,
+            "theta": 0.04,
+            "xi": 0.30,
+            "rho": -0.50,
+            "n_paths": 2000,
+            "n_steps": 32,
+            "seed": 123,
+        },
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["instrument"] == "heston_call"
+    assert body["price"] > 0.0
+    assert body["method"] == "reference"
+    assert body["model_version"] == "heston_monte_carlo_v1"
+
+
+def test_heston_call_validation_error_for_missing_parameters() -> None:
+    response = client.post(
+        "/api/v1/price",
+        json={
+            "instrument": "heston_call",
+            "S0": 100.0,
+            "K": 100.0,
+            "sigma": 0.2,
+            "r": 0.05,
+            "T": 1.0,
+        },
+    )
+    assert response.status_code == 422
+
+
 def test_validation_error_for_missing_strike() -> None:
     response = client.post(
         "/api/v1/price",

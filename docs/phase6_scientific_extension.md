@@ -201,3 +201,34 @@ speedup_vs_monte_carlo
 - Ajouter un benchmark montrant la difficulté des schémas FDM au-delà de faibles dimensions.
 - Ajouter une visualisation frontend pour les paramètres multi-actifs.
 - Démarrer ensuite le modèle de Heston.
+
+## Modèle de Heston
+
+Le modèle de Heston introduit une variance stochastique avec corrélation entre le Brownien du sous-jacent et celui de la variance.
+
+Paramètres API pour `heston_call` :
+
+```text
+S0
+K
+r
+T
+v0: variance initiale
+kappa: vitesse de retour à la moyenne
+theta: variance long terme
+xi: volatilité de la variance
+rho: corrélation spot/variance
+n_paths
+n_steps
+seed
+```
+
+Exemple :
+
+```bash
+curl -X POST http://localhost:8000/api/v1/price \
+  -H "Content-Type: application/json" \
+  -d '{"instrument":"heston_call","S0":100,"K":100,"sigma":0.2,"r":0.05,"T":1,"v0":0.04,"kappa":2.0,"theta":0.04,"xi":0.30,"rho":-0.50,"n_paths":20000,"n_steps":128,"seed":123}'
+```
+
+La première référence utilise un schéma Monte Carlo full-truncation.

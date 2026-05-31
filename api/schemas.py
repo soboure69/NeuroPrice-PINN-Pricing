@@ -10,6 +10,7 @@ InstrumentType = Literal[
     "asian_arithmetic_call",
     "lookback_floating_call",
     "basket_call",
+    "heston_call",
 ]
 
 PricingMethod = Literal["auto", "model", "reference"]
@@ -28,13 +29,19 @@ class PricingRequest(BaseModel):
     weights: list[float] | None = None
     correlation: float | None = Field(default=0.0, ge=-0.99, le=0.99)
     n_paths: int | None = Field(default=20000, ge=1000, le=200000)
+    n_steps: int | None = Field(default=128, ge=8, le=1024)
     seed: int | None = Field(default=123, ge=0)
+    v0: float | None = Field(default=None, gt=0.0, lt=4.0)
+    kappa: float | None = Field(default=None, gt=0.0, le=20.0)
+    theta: float | None = Field(default=None, gt=0.0, lt=4.0)
+    xi: float | None = Field(default=None, gt=0.0, le=5.0)
+    rho: float | None = Field(default=None, ge=-0.99, le=0.99)
     method: PricingMethod = "auto"
     greeks: bool = False
 
     @model_validator(mode="after")
     def validate_instrument_fields(self) -> "PricingRequest":
-        if self.instrument in {"european_call", "down_out_barrier_call", "asian_arithmetic_call", "basket_call"} and self.K is None:
+        if self.instrument in {"european_call", "down_out_barrier_call", "asian_arithmetic_call", "basket_call", "heston_call"} and self.K is None:
             raise ValueError("K is required for this instrument")
         if self.instrument == "down_out_barrier_call" and self.barrier is None:
             raise ValueError("barrier is required for down_out_barrier_call")
@@ -51,6 +58,9 @@ class PricingRequest(BaseModel):
                 raise ValueError("all basket sigmas must be in (0, 2)")
             if any(value < 0.0 for value in self.weights) or sum(self.weights) <= 0.0:
                 raise ValueError("basket weights must be non-negative and sum to a positive value")
+        if self.instrument == "heston_call":
+            if self.v0 is None or self.kappa is None or self.theta is None or self.xi is None or self.rho is None:
+                raise ValueError("v0, kappa, theta, xi, and rho are required for heston_call")
         return self
 
 
