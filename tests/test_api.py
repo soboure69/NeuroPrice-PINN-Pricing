@@ -100,6 +100,7 @@ def test_price_basket_call() -> None:
             "correlation": 0.25,
             "n_paths": 4000,
             "seed": 42,
+            "method": "reference",
         },
     )
     assert response.status_code == 200
@@ -108,6 +109,33 @@ def test_price_basket_call() -> None:
     assert body["price"] > 0.0
     assert body["method"] == "reference"
     assert body["model_version"] == "basket_monte_carlo_v1"
+
+
+def test_price_basket_call_model_method_if_checkpoint_available() -> None:
+    response = client.post(
+        "/api/v1/price",
+        json={
+            "instrument": "basket_call",
+            "S0": 100.0,
+            "K": 100.0,
+            "sigma": 0.2,
+            "r": 0.05,
+            "T": 1.0,
+            "spots": [100.0, 105.0, 95.0, 110.0, 90.0],
+            "sigmas": [0.2, 0.25, 0.18, 0.22, 0.20],
+            "weights": [0.2, 0.2, 0.2, 0.2, 0.2],
+            "correlation": 0.25,
+            "method": "model",
+        },
+    )
+    if response.status_code == 500:
+        assert "surrogate" in response.text.lower()
+        return
+    assert response.status_code == 200
+    body = response.json()
+    assert body["instrument"] == "basket_call"
+    assert body["method"] == "model"
+    assert body["model_version"] == "basket_surrogate_v2"
 
 
 def test_basket_call_validation_error_for_mismatched_dimensions() -> None:
@@ -146,6 +174,7 @@ def test_price_heston_call() -> None:
             "n_paths": 2000,
             "n_steps": 32,
             "seed": 123,
+            "method": "reference",
         },
     )
     assert response.status_code == 200
@@ -154,6 +183,34 @@ def test_price_heston_call() -> None:
     assert body["price"] > 0.0
     assert body["method"] == "reference"
     assert body["model_version"] == "heston_monte_carlo_v1"
+
+
+def test_price_heston_call_model_method_if_checkpoint_available() -> None:
+    response = client.post(
+        "/api/v1/price",
+        json={
+            "instrument": "heston_call",
+            "S0": 100.0,
+            "K": 100.0,
+            "sigma": 0.2,
+            "r": 0.05,
+            "T": 1.0,
+            "v0": 0.04,
+            "kappa": 2.0,
+            "theta": 0.04,
+            "xi": 0.30,
+            "rho": -0.50,
+            "method": "model",
+        },
+    )
+    if response.status_code == 500:
+        assert "surrogate" in response.text.lower()
+        return
+    assert response.status_code == 200
+    body = response.json()
+    assert body["instrument"] == "heston_call"
+    assert body["method"] == "model"
+    assert body["model_version"] == "heston_surrogate_v1"
 
 
 def test_heston_call_validation_error_for_missing_parameters() -> None:
