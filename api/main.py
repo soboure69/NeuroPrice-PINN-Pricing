@@ -16,7 +16,7 @@ from sentry_sdk.integrations.fastapi import FastApiIntegration
 
 from api.cache import get_cache
 from api.pricing_service import PricingError, preload_models, price
-from api.quota import get_quota_store
+from api.quota import get_plan_catalog, get_quota_store
 from api.schemas import BatchPricingRequest, BatchPricingResponse, PricingRequest, PricingResponse
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s %(message)s")
@@ -106,6 +106,36 @@ def health() -> dict[str, str]:
 @app.get("/debug/cors")
 def debug_cors(request: Request) -> dict[str, object]:
     return {"origin": request.headers.get("origin"), "allowed_origins": cors_origins}
+
+
+@app.get("/api/v1/plans")
+def list_plans() -> dict[str, object]:
+    return {"plans": get_plan_catalog()}
+
+
+@app.get("/api/v1/admin/summary")
+def admin_summary(http_request: Request) -> dict[str, object]:
+    expected_secret = os.getenv("ADMIN_API_SECRET")
+    provided_secret = http_request.headers.get("X-NeuroPrice-Admin-Secret")
+    if not expected_secret or provided_secret != expected_secret:
+        raise HTTPException(status_code=401, detail="Invalid admin API secret.")
+    return get_quota_store().admin_summary()
+
+
+@app.post("/api/v1/internal/users/plan")
+def update_user_plan(payload: dict[str, str], http_request: Request) -> dict[str, str]:
+    expected_secret = os.getenv("INTERNAL_API_SECRET")
+    provided_secret = http_request.headers.get("X-NeuroPrice-Internal-Secret")
+    if not expected_secret or provided_secret != expected_secret:
+        raise HTTPException(status_code=401, detail="Invalid internal API secret.")
+    email = payload.get("email")
+    plan = payload.get("plan")
+    if not email or not plan:
+        raise HTTPException(status_code=422, detail="Missing email or plan.")
+    try:
+        return get_quota_store().set_plan(email, plan)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
 
 
 @app.post("/api/v1/price", response_model=PricingResponse)

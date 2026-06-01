@@ -213,3 +213,12 @@ frontend/out/
 frontend/.env
 frontend/.env.local
 frontend/.env.*.local
+
+# Documentation
+docs/research/*.md
+docs/research/*.pdf
+docs/research/*.txt
+docs/marketing/*.md
+docs/marketing/*.pdf
+docs/marketing/*.txt
+

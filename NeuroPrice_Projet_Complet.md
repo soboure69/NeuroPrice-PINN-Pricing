@@ -1534,22 +1534,22 @@ EDP de Heston : 2D en (S, v), plus complexe que BS
 **Objectif :** Traction commerciale, utilisateurs payants, article de recherche.
 
 #### Marketing & Acquisition (Semaine 43-46)
-- [ ] Article LinkedIn/Medium : "Comment j'ai construit un pricer PINN" (objectif 1000+ vues)
-- [ ] Post sur r/quant et r/MachineLearning
-- [ ] Présentation dans des meetups FinTech / Quant Finance
-- [ ] Demo vidéo YouTube (5 min)
-- [ ] Product Hunt launch
+- [x] Article LinkedIn/Medium : "Comment j'ai construit un pricer PINN" (objectif 1000+ vues)
+- [x] Post sur r/quant et r/MachineLearning
+- [x] Présentation dans des meetups FinTech / Quant Finance
+- [x] Demo vidéo YouTube (5 min)
+- [x] Product Hunt launch
 
 #### Monétisation (Semaine 47-50)
-- [ ] Intégrer Stripe pour les paiements
-- [ ] Implémenter les tiers d'abonnement
-- [ ] Dashboard admin (analytics, revenus, utilisateurs)
-- [ ] Support client (Intercom ou email)
+- [x] Intégrer Stripe pour les paiements
+- [x] Implémenter les tiers d'abonnement
+- [x] Dashboard admin (analytics, revenus, utilisateurs)
+- [x] Support client (Intercom ou email)
 
 #### Article de Recherche (Semaine 51-54)
-- [ ] Rédiger l'article technique (10-15 pages, format arXiv)
-- [ ] Soumission arXiv q-fin ou SSRN
-- [ ] Soumission conference : Risk Magazine, ICML Finance Workshop, ou JMLF
+- [x] Rédiger l'article technique (10-15 pages, format arXiv)
+- [x] Soumission arXiv q-fin ou SSRN
+- [x] Soumission conference : Risk Magazine, ICML Finance Workshop, ou JMLF
 
 **Livrable Phase 7 :** SaaS avec >50 utilisateurs payants + article publié sur arXiv
 

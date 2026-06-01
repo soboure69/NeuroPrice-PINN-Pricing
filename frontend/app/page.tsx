@@ -1,13 +1,11 @@
 import { ArrowRight, BrainCircuit, CheckCircle2, Cloud, Cpu, Shield } from "lucide-react";
 import type { ReactNode } from "react";
+import { AdminDashboard } from "@/components/AdminDashboard";
 import { AuthQuotaPanel } from "@/components/AuthQuotaPanel";
 import { PricingDashboard } from "@/components/PricingDashboard";
-
-const plans = [
-  { name: "Free", price: "0€", features: ["50 pricings / mois", "European calls", "Dashboard public"] },
-  { name: "Quant", price: "29€", features: ["10k pricings / mois", "Options exotiques", "Cache Redis prioritaire"] },
-  { name: "Enterprise", price: "Sur devis", features: ["Batch pricing", "SLA API", "Déploiement dédié"] },
-];
+import { SubscribeButton } from "@/components/SubscribeButton";
+import { SupportWidget } from "@/components/SupportWidget";
+import { plans } from "@/components/plans";
 
 const apiUrl = (process.env.NEXT_PUBLIC_API_URL ?? "https://neuroprice-api.onrender.com").replace(/\/$/, "");
 
@@ -23,6 +21,8 @@ export default function Home() {
           <a href="#product" className="hover:text-white">Produit</a>
           <a href="#dashboard" className="hover:text-white">Dashboard</a>
           <a href="#pricing" className="hover:text-white">Plans</a>
+          <a href="#admin" className="hover:text-white">Admin</a>
+          <a href="#support" className="hover:text-white">Support</a>
         </div>
         <a href="#dashboard" className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-950">Essayer</a>
       </nav>
@@ -51,6 +51,10 @@ export default function Home() {
 
       <PricingDashboard />
 
+      <AdminDashboard />
+
+      <SupportWidget />
+
       <section id="pricing" className="mx-auto max-w-7xl px-6 py-16">
         <div className="mb-10 text-center">
           <h2 className="text-4xl font-bold text-white">Plans SaaS MVP</h2>
@@ -66,6 +70,7 @@ export default function Home() {
                   <li key={feature} className="flex items-center gap-2"><CheckCircle2 className="text-success" size={18} />{feature}</li>
                 ))}
               </ul>
+              <SubscribeButton plan={plan.id} />
             </div>
           ))}
         </div>
